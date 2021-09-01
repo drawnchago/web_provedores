@@ -3,10 +3,10 @@ import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
-import { User } from '../../../shared/Interfaces/user';
-import { SettingsService } from '../settings.service';
+import { User } from '../../../../shared/Interfaces/user';
+import { SettingsService } from '../../settings.service';
 import { Toast, ToastrService } from 'ngx-toastr';
-import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
 @Component({

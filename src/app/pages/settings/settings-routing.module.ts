@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UsersComponent } from './users/users.component';
+import { UsersComponent } from './catalogs/users/users.component';
 import { AuthGuard } from 'src/app/shared/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'users', pathMatch: 'full'},
   {
-    path: 'users',
+    path: 'catalogs/users',
     component: UsersComponent,
     canActivate: [AuthGuard], 
-    data: {id: 3}
+    data: {id: 23}
   }
   
 ];
