@@ -1,0 +1,152 @@
+<h2 class="font-medium" mat-dialog-title><strong>{{action}} Usuario</strong></h2>
+<mat-dialog-content class="pb-3">
+	<form [formGroup]="form">
+		<div class="d-flex align-items-center">
+			<img class="mat-card-avatar" [src]='user.img'>
+			<button mat-raised-button color="primary" class="m-l-15 input-file-button">
+				<input type="file" (change)="selectFile($event)" #fileInput>
+			</button>
+		</div>
+		<mat-tab-group>
+			<mat-tab label="Personal">
+				<div fxLayout="column" class="form-field-outer">
+					<div fxLayout="row wrap" class="align-items-center">
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<mat-select placeholder="Rol" formControlName="role_id" required>
+										<mat-option [value]="1">Administrador</mat-option>
+										<mat-option [value]="2">Ventas</mat-option>
+									</mat-select>
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="username" matInput required placeholder="Usuario">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="password" formControlName="password" matInput required placeholder="Contraseña">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="name" matInput required placeholder="Nombre">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="firstname" matInput required placeholder="Paterno">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="surname" matInput required placeholder="Materno">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-checkbox formControlName="status" class="example-margin">Activo</mat-checkbox>
+							</div>
+						</div>
+					</div>
+				</div>
+			</mat-tab>
+			<mat-tab label="Contacto">
+				<div fxLayout="column" class="form-field-outer">
+					<div fxLayout="row wrap" class="align-items-center">
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="email" formControlName="email" matInput placeholder="Correo">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="cellphone" matInput placeholder="Celular">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="phone" matInput placeholder="Telefono">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="street" matInput placeholder="Calle">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="int_number" matInput placeholder="# Interior">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="out_number" matInput placeholder="# Exterior">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="suburb" matInput placeholder="Colonia">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<input type="text" formControlName="postal_code" matInput placeholder="Codigo postal">
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<mat-select placeholder="Estado" formControlName="state_id">
+										<mat-option value="1">Nuevo León</mat-option>
+										<mat-option value="2">Coahuila</mat-option>
+									</mat-select>
+								</mat-form-field>
+							</div>
+						</div>
+						<div fxFlex="100" fxFlex.gt-md="33">
+							<div class="m-r-15 m-l-15">
+								<mat-form-field>
+									<mat-select placeholder="Municipio" formControlName="municipality_id">
+										<mat-option value="1">Allende</mat-option>
+										<mat-option value="2">Cadereyta</mat-option>
+									</mat-select>
+								</mat-form-field>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</mat-tab>
+		</mat-tab-group>
+	</form>
+</mat-dialog-content>
