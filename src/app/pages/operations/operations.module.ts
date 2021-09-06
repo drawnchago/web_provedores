@@ -10,12 +10,14 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { MatListModule } from '@angular/material/list';
 import { WorkOrdersComponent } from './process/work-orders/work-orders.component';
 import { WorkDialogComponent } from './process/work-orders/work-dialog/work-dialog.component';
+import { WorkFormatComponent } from './process/work-orders/work-format/work-format.component';
 
 
 @NgModule({
   declarations: [
     WorkOrdersComponent,
     WorkDialogComponent,
+    WorkFormatComponent,
   ],
   imports: [
     CommonModule,
