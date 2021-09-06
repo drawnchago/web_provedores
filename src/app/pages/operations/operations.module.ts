@@ -11,6 +11,15 @@ import { MatListModule } from '@angular/material/list';
 import { WorkOrdersComponent } from './process/work-orders/work-orders.component';
 import { WorkDialogComponent } from './process/work-orders/work-dialog/work-dialog.component';
 import { WorkFormatComponent } from './process/work-orders/work-format/work-format.component';
+import { TypesBombComponent } from './catalogs/types-bomb/types-bomb.component';
+import { TypesBombDialogComponent } from './catalogs/types-bomb/types-bomb-dialog/types-bomb-dialog.component';
+import { BrandsBombComponent } from './catalogs/brands-bomb/brands-bomb.component';
+import { BrandsBombDialogComponent } from './catalogs/brands-bomb/brands-bomb-dialog/brands-bomb-dialog.component';
+import { ModelsBombComponent } from './catalogs/models-bomb/models-bomb.component';
+import { ModelsBombDialogComponent } from './catalogs/models-bomb/models-bomb-dialog/models-bomb-dialog.component';
+import { CustomersComponent } from './catalogs/customers/customers.component';
+import { CustomersDialogComponent } from './catalogs/customers/customers-dialog/customers-dialog.component';
+// import { WorkDialogComponent } from './process/work-orders/work-dialog/work-dialog.component';
 
 
 @NgModule({
@@ -18,6 +27,15 @@ import { WorkFormatComponent } from './process/work-orders/work-format/work-form
     WorkOrdersComponent,
     WorkDialogComponent,
     WorkFormatComponent,
+    // WorkDialogComponent,
+    TypesBombComponent,
+    TypesBombDialogComponent,
+    BrandsBombComponent,
+    BrandsBombDialogComponent,
+    ModelsBombComponent,
+    ModelsBombDialogComponent,
+    CustomersComponent,
+    CustomersDialogComponent
   ],
   imports: [
     CommonModule,

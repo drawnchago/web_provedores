@@ -1,0 +1,426 @@
+<h2 class="font-medium" mat-dialog-title>
+  <strong>{{ action }} Orden de Trabajo</strong>
+</h2>
+<mat-dialog-content class="pb-3">
+  <div fxLayout="column" class="form-field-outer">
+    <div fxLayout="row wrap" class="align-items-center">
+      <div fxFlex="100" fxFlex.gt-md="100">
+        <div class="m-r-15 m-l-15">
+          <p class="title"><small>BOMBAS VILLASANA S.A. DE C.V </small></p>
+          <p class="title">
+            <small>LUCIO BLANCO No. 204 COL. LEANDRO VALLE C.P. 25718</small>
+          </p>
+          <p class="title">
+            <small>Tels. (866) 634-53-85 Cel. (866) 107-03-60</small>
+          </p>
+          <p class="title"><small>bombas.villasana@bovisa.com.mx</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column" class="form-field-outer">
+    <div fxLayout="row wrap" class="align-items-center">
+      <div fxFlex="100" fxFlex.gt-md="100">
+        <div class="m-r-15 m-l-15">
+          <h4 class="title">VENTA - REPARACION - FABRICACION - SERVICIO</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column" class="form-field-outer">
+    <div fxLayout="row wrap" class="align-items-center">
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">No. Reporte&nbsp;</b>{{ order.id }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Fecha:&nbsp;</b>{{ order.created_at }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div fxLayout="column" class="form-field-outer">
+    <div fxLayout="row wrap" class="align-items-center">
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Cliente:&nbsp;</b> {{ order.customer }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Equipo:&nbsp;</b> {{ order.bomb }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Marca:&nbsp;</b> {{ order.brand }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Modelo:&nbsp;</b> {{ order.model }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Tamaño:&nbsp;</b> {{ order.size }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Rpm:&nbsp;</b> {{ order.rpm }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Potencia:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15"><b for="">Hp:&nbsp;</b> {{ order.hp }}</div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Stock:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Pase de salida:&nbsp;</b> {{ order.exit_pass }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Evaluacion:&nbsp;</b> {{ order.evaluation }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Serie:&nbsp;</b> {{ order.set }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div fxLayout="column" class="form-field-outer">
+    <div fxLayout="row wrap" class="align-items-center">
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Medidas y peso&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Cantidad:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Descripcion:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Largo Maximo Total:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          {{ order.total_length_quantity }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          {{ order.total_length_description }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Diametro Maximo Total: &nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          {{ order.total_diameter_quantity }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          {{ order.total_diameter_description }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          <b for="">Peso:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          {{ order.total_weight_quantity }}
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="33">
+        <div class="m-r-15 m-l-15">
+          {{ order.total_weight_description }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div fxLayout="column" class="form-field-outer">
+    <div fxLayout="row wrap" class="align-items-center">
+      <div fxFlex="100" fxFlex.gt-md="100">
+        <div class="m-r-15 m-l-15"></div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Bomba:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">SI&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">No:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Reparacion:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Suministro:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Solicitar:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Stock &nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="">
+          <b for="">Description &nbsp;</b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div fxLayout="column" class="form-field-outer">
+    <div
+      fxLayout="row wrap"
+      class="align-items-center"
+      *ngFor="let element of pieces_inspection_bomb; let i = index"
+    >
+      <div fxFlex="100" fxFlex.gt-md="100">
+        <div class="m-r-15 m-l-15">
+          <!--           <b for="">Inspeccion de Piezas para reparar o remplazar:&nbsp;</b> -->
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b>{{ element.piece_bomb }}</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b
+            [ngClass]="{
+              yes: element.yes == 1,
+              no: element.yes == 0
+            }"
+            >{{ element.yes == 1 ? "✓" : "x" }}</b
+          >
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b  [ngClass]="{
+              yes: element.no == 1,
+              no: element.no == 0
+            }">{{ element.no == 1 ? "✓" : "x" }}</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b  [ngClass]="{
+              yes: element.repair == 1,
+              no: element.repair == 0
+            }">{{ element.repair == 1 ? "✓" : "x" }}</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b  [ngClass]="{
+              yes: element.repair == 1,
+              no: element.repair == 0
+            }">{{ element.repair == 1 ? "✓" : "x" }}</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b  [ngClass]="{
+              yes: element.demand == 1,
+              no: element.demand == 0
+            }">{{ element.demand == 1 ? "✓" : "x" }}</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b  [ngClass]="{
+              yes: element.yes == 1,
+              no: element.yes == 0
+            }">{{ element.yes == 1 ? "✓" : "x" }}</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="">
+          <b  [ngClass]="{
+              yes: element.yes == 1,
+              no: element.yes == 0
+            }">{{ element.yes == 1 ? "✓" : "x" }}</b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column" class="form-field-outer">
+    <div fxLayout="row wrap" class="align-items-center">
+      <div fxFlex="100" fxFlex.gt-md="100">
+        <div class="m-r-15 m-l-15">
+          <!-- <b for="">Inspeccion de Piezas para reparar o remplazar:&nbsp;</b> -->
+        </div>
+      </div>
+      <br />
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Motor:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">SI&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">No:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Reparacion:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Suministro:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Solicitar:&nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="m-r-15 m-l-15">
+          <b for="">Stock &nbsp;</b>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-md="10">
+        <div class="">
+          <b for="">Description &nbsp;</b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div fxLayout="column" class="form-field-outer">
+    <div
+    fxLayout="row wrap"
+    class="align-items-center"
+    *ngFor="let element of pieces_inspection_motor; let i = index"
+  >
+    <div fxFlex="100" fxFlex.gt-md="100">
+      <div class="m-r-15 m-l-15">
+        <!--           <b for="">Inspeccion de Piezas para reparar o remplazar:&nbsp;</b> -->
+      </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-md="10">
+      <div class="m-r-15 m-l-15">
+        <b>{{ element.piece_bomb }}</b>
+      </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-md="10">
+      <div class="m-r-15 m-l-15">
+        <b
+          [ngClass]="{
+            yes: element.yes == 1,
+            no: element.yes == 0
+          }"
+          >{{ element.yes == 1 ? "✓" : "x" }}</b
+        >
+      </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-md="10">
+      <div class="m-r-15 m-l-15">
+        <b  [ngClass]="{
+            yes: element.no == 1,
+            no: element.no == 0
+          }">{{ element.no == 1 ? "✓" : "x" }}</b>
+      </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-md="10">
+      <div class="m-r-15 m-l-15">
+        <b  [ngClass]="{
+            yes: element.repair == 1,
+            no: element.repair == 0
+          }">{{ element.repair == 1 ? "✓" : "x" }}</b>
+      </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-md="10">
+      <div class="m-r-15 m-l-15">
+        <b  [ngClass]="{
+            yes: element.repair == 1,
+            no: element.repair == 0
+          }">{{ element.repair == 1 ? "✓" : "x" }}</b>
+      </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-md="10">
+      <div class="m-r-15 m-l-15">
+        <b  [ngClass]="{
+            yes: element.demand == 1,
+            no: element.demand == 0
+          }">{{ element.demand == 1 ? "✓" : "x" }}</b>
+      </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-md="10">
+      <div class="m-r-15 m-l-15">
+        <b  [ngClass]="{
+            yes: element.yes == 1,
+            no: element.yes == 0
+          }">{{ element.yes == 1 ? "✓" : "x" }}</b>
+      </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-md="10">
+      <div class="">
+        <b  [ngClass]="{
+            yes: element.yes == 1,
+            no: element.yes == 0
+          }">{{ element.yes == 1 ? "✓" : "x" }}</b>
+      </div>
+    </div>
+  </div>
+  </div>
+</mat-dialog-content>

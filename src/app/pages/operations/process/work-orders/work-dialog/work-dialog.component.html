@@ -1,0 +1,404 @@
+<h2 class="font-medium" mat-dialog-title>
+  <strong>{{ action }} Orden de Trabajo</strong>
+</h2>
+<mat-dialog-content class="pb-3">
+  <form [formGroup]="form" (ngSubmit)="saveOrder()">
+    <mat-tab-group dynamicHeight>
+      <mat-tab label="General">
+        <br />
+        <div fxLayout="column" class="form-field-outer">
+          <div fxLayout="row wrap" class="align-items-center">
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <mat-select
+                    placeholder="Cliente"
+                    formControlName="customer_id"
+                    required
+                  >
+                    <mat-option [value]="1">Pedro Martinez</mat-option>
+                    <mat-option [value]="2">Jose María</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <mat-select
+                    placeholder="Tipo de bomba"
+                    formControlName="type_bomb_id"
+                    required
+                  >
+                    <mat-option [value]="1">MOTOBOMBA ANSI</mat-option>
+                    <mat-option [value]="2">BOMA HIDRAULICA</mat-option>
+                    <mat-option [value]="3">HIDROLAVADORA</mat-option>
+                    <mat-option [value]="4">HORIZONTAL CENTRIFUGA</mat-option>
+                    <mat-option [value]="5">BOMBA RECIPROCANTE</mat-option>
+                    <mat-option [value]="6">BOMBA SUMERGIBLE</mat-option>
+                    <mat-option [value]="7">SUMERGIBLE IMAC</mat-option>
+                    <mat-option [value]="8">BOMBA SUM PUM</mat-option>
+                    <mat-option [value]="9">BOMBA VERTICAL</mat-option>
+                    <mat-option [value]="10">CILINDRO HIDRAULICO</mat-option>
+                    <mat-option [value]="11">MOTOR</mat-option>
+                    <mat-option [value]="12">SOPLADOR</mat-option>
+                    <mat-option [value]="13">BOMBA MULTITAPAS</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <mat-select
+                    placeholder="Marca"
+                    formControlName="brand_id"
+                    required
+                  >
+                    <mat-option [value]="1">Generico</mat-option>
+                    <mat-option [value]="2">Marca 1</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <mat-select
+                    placeholder="Modelo"
+                    formControlName="model_id"
+                    required
+                  >
+                    <mat-option [value]="1">Modelo 123</mat-option>
+                    <mat-option [value]="2">Modelo ABC</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="size"
+                    matInput
+                    required
+                    placeholder="Tamaño"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="number"
+                    formControlName="stock"
+                    matInput
+                    required
+                    placeholder="Stock"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="exit_pass"
+                    matInput
+                    required
+                    placeholder="Pase de Salida"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="rpm"
+                    matInput
+                    required
+                    placeholder="Rpm"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="hp"
+                    matInput
+                    required
+                    placeholder="Hp"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="evaluation"
+                    matInput
+                    required
+                    placeholder="Evaluacion"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="set"
+                    matInput
+                    required
+                    placeholder="Serie"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Medidas y Peso">
+        <br />
+        <div fxLayout="column" class="form-field-outer">
+          <div fxLayout="row wrap" class="align-items-center">
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="number"
+                    formControlName="total_length_quantity"
+                    matInput
+                    required
+                    placeholder="Cantidad del largo total"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="number"
+                    formControlName="total_diameter_quantity"
+                    matInput
+                    required
+                    placeholder="Cantidad del diametro total"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="number"
+                    formControlName="total_weight_quantity"
+                    matInput
+                    required
+                    placeholder="Cantidad del peso total"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <textarea
+                    type="text"
+                    formControlName="total_length_description"
+                    matInput
+                    required
+                    placeholder="Descripcion del largo total"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <textarea
+                    type="text"
+                    formControlName="total_diameter_description"
+                    matInput
+                    required
+                    placeholder="Descripcion del diametro total"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <textarea
+                    type="text"
+                    formControlName="total_weight_description"
+                    matInput
+                    required
+                    placeholder="Descripcion del peso total"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+
+      <ng-container *ngIf="user.role_id == 3 && action == 'Editar' ">
+      <mat-tab label="Inspeccion de Piezas de Bomba">
+        <br />
+        <div fxLayout="column" >
+          <div
+            *ngFor="let element of bomb_pieces_bomb_inspection; let i = index"
+          >
+            <div fxLayout="row"  fxLayoutAlign="center center">
+              <div fxFlex="20" >
+               {{ element.piece }}:
+              </div>
+              <div fxFlex="5" class="flex-p">
+                <input
+                  type="checkbox"
+                  color="warn"
+                  [checked]="isChecked"
+                  (change)="changedBomb($event, element, 'yes')"
+                />
+                Si
+              </div>
+              <div fxFlex="5" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedBomb($event, element, 'no')"
+                />
+                No
+              </div>
+              <div fxFlex="15" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedBomb($event, element, 'repair')"
+                />
+                Reparacion
+              </div>
+              <div fxFlex="12" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedBomb($event, element, 'supply')"
+                />
+                Suministro
+              </div>
+              <div fxFlex="11.4" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedBomb($event, element, 'demand')"
+                />
+                Solicitar
+              </div>
+              <div fxFlex="11.4" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedBomb($event, element, 'stock')"
+                />
+                Stock
+              </div>
+              <div fxFlex="11.4" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedBomb($event, element, 'description')"
+                />
+                Desc.
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+        <mat-tab label="Inspeccion de Piezas de Motor">
+        <br />
+        <div fxLayout="column" >
+          <div *ngFor="let element of bomb_pieces_motor_inspection; let i = index">
+            <div fxLayout="row"  fxLayoutAlign="center center">
+              <div fxFlex="20" >
+               {{ element.piece }}:
+              </div>
+              <div fxFlex="5" class="flex-p">
+                <input
+                  type="checkbox"
+                  color="warn"
+                  [checked]="isChecked"
+                  (change)="changedMotor($event, element, 'yes')"
+                />
+                Si
+              </div>
+              <div fxFlex="5" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedMotor($event, element, 'no')"
+                />
+                No
+              </div>
+              <div fxFlex="15" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedMotor($event, element, 'repair')"
+                />
+                Reparacion
+              </div>
+              <div fxFlex="12" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedMotor($event, element, 'supply')"
+                />
+                Suministro
+              </div>
+              <div fxFlex="11.4" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedMotor($event, element, 'demand')"
+                />
+                Solicitar
+              </div>
+              <div fxFlex="11.4" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedMotor($event, element, 'stock')"
+                />
+                Stock
+              </div>
+              <div fxFlex="11.4" class="flex-p">
+                <input
+                  type="checkbox"
+                  [checked]="isChecked"
+                  (change)="changedMotor($event, element, 'description')"
+                />
+                Desc.
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab> 
+    </ng-container>
+
+    </mat-tab-group>
+    <button mat-raised-button type="submit" color="primary">Guardar</button>
+  </form>
+</mat-dialog-content>
