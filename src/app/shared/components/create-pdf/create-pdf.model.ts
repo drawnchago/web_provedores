@@ -1,0 +1,22 @@
+export class BranchOffices{
+  id:number;
+  code:string;
+  description:string;
+  street:string;
+  exterior_number:number;
+  interior_number:number;
+  subrub:string;
+  postal_code:number;
+  id_country:number;
+  id_state:number;
+  id_municipality:number;
+  cellphone:string;
+  phone:string;
+  phone_2:string;
+  email:string;
+  status:number;
+  created_at:Date;
+  created_by:number;
+  updated_at:Date;
+  updated_by:number;
+}
