@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CommonModule } from '@angular/common';
+import { CreatePdfComponent } from './components/create-pdf/create-pdf.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { CommonModule } from '@angular/common';
     AccordionLinkDirective,
     AccordionDirective,
     ConfirmDialogComponent,
+    CreatePdfComponent,
   ],
   exports: [
     AccordionAnchorDirective,

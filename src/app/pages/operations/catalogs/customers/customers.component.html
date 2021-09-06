@@ -67,17 +67,15 @@
 								</a>
 							</td>
 						</ng-container>
-
 						<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 						<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 					</table>
-					<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+					<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
 				</div>
 			</mat-card-content>
 		</mat-card>
+	</div>	  
+	<div> 
+		<button (click)="valid()" style="width: 50%; height: 50%;"></button>
 	</div>
-	<!-- <div id="pdf">
-		<button (click)="captureScreen()"></button>
-		<h1>hello, peter!</h1>
-	</div> -->
-</div>
+	</div>

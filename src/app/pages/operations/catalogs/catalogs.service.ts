@@ -31,7 +31,7 @@ export class CatalogsService {
   }
 
   saveBrandBomb(data): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'saveBrandBomb?name=' + data.name        +
+    return this.httpClient.post<any>(this.urlBase + 'saveBrandBomb?name=' + data.name       +
                                                         '&description='  + data.description +      
                                                         '&userId='       + data.userId      +      
                                                         '&status='       + data.status      ,data);
@@ -46,7 +46,7 @@ export class CatalogsService {
   }
 
   saveModelBomb(data): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'saveModelBomb?name=' + data.name        +
+    return this.httpClient.post<any>(this.urlBase + 'saveModelBomb?name=' + data.name       +
                                                         '&description='  + data.description +      
                                                         '&userId='       + data.userId      +      
                                                         '&status='       + data.status      ,data);
@@ -69,5 +69,9 @@ export class CatalogsService {
 
   deleteCustomer(id:number): Observable<any>{
     return this.httpClient.post<any>(this.urlBase + 'deleteCustomer?id=' + id ,id);
+  }
+  //
+  getBranchOffice(id:number): Observable<any>{
+    return this.httpClient.get<any>(this.urlBase + 'getBranchOffice?id='+ id);
   }
 }
