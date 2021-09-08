@@ -65,7 +65,7 @@ export class SalesYearlyComponent implements OnInit {
         bar: {
           horizontal: false,
           columnWidth: '40%',
-          endingShape: 'flat'
+          /* endingShape: 'flat' */
         },
 
       },

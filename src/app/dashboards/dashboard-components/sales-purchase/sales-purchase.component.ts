@@ -65,7 +65,7 @@ export class SalesPurchaseComponent implements OnInit {
                 bar: {
                     horizontal: false,
                     columnWidth: '60%',
-                    endingShape: 'flat'
+                  /*   endingShape: 'flat' */
                 },
             },
             dataLabels: {

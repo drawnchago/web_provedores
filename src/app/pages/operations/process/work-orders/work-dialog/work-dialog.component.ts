@@ -199,17 +199,17 @@ export class WorkDialogComponent implements OnInit {
 
     this.oppService.saveInspecionPiece(bomb_inspection).subscribe(response => {
       console.log(response);
-      //this.closeDialog(response);
+      this.closeDialog(response);
 
     });
     this.oppService.saveInspecionPiece(motor_inspection).subscribe(response => {
       console.log(response);
-      //this.closeDialog(response);
+      this.closeDialog(response);
 
     });
     console.log(data);
     this.oppService.saveWorkOrder(data).subscribe(response => {
-      /* this.closeDialog(response); */
+      this.closeDialog(response); 
 
     });
   }

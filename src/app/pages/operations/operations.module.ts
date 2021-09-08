@@ -27,7 +27,6 @@ import { CustomersDialogComponent } from './catalogs/customers/customers-dialog/
     WorkOrdersComponent,
     WorkDialogComponent,
     WorkFormatComponent,
-    // WorkDialogComponent,
     TypesBombComponent,
     TypesBombDialogComponent,
     BrandsBombComponent,

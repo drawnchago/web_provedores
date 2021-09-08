@@ -200,12 +200,12 @@ export class CustomersComponent implements OnInit {
     doc.text('vertical', 193, 7);
     doc.addImage('assets/images/bomb3.png', 'png', 187, 8,25,30);
     /*SECCION II*/
-    //TITULO
+    //! TITULO
     doc.setFontSize(12);
     doc.text('VENTA - REPARACION - FABRICACION - SERVICIO ', 52, 58)
-    //BORDE
+    //! BORDE
     doc.roundedRect(7, 23, 190, 30, 3, 3);
-    //TEXTO
+    //! TEXTO
     doc.setFontSize(12);
     doc.setTextColor(10);
     doc.text('Descripcion :', 10, 28);
@@ -381,6 +381,6 @@ export class CustomersComponent implements OnInit {
       {'engine': 'Cigueña','1':' ','2':' ','3':' ','4':' ','5':' '},
       {'engine': 'Pistones','1':' ','2':' ','3':' ','4':' ','5':' '}
     ],{ columnStyles: {},startY:250,headStyles: {fillColor: [0,56,107]}, margin:{ horizontal: 10}});
-    doc.save('test.pdf');
+    doc.save('Formato.pdf');
   }
 }
