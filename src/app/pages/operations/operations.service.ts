@@ -16,6 +16,9 @@ export class OperationsService {
   saveInspecionPiece(data): Observable<any>{
     return this.httpClient.post<any>(this.urlBase + 'saveInspecionPiece',data);
   }
+  finishOrders(order_id,user_id): Observable<any>{
+    return this.httpClient.get<any>(this.urlBase + 'finishOrders?order_id='+order_id+'&user_id='+user_id);
+  }
   getWorkOrders(): Observable<any>{
     return this.httpClient.get<any>(this.urlBase + 'getWorkOrders');
   }

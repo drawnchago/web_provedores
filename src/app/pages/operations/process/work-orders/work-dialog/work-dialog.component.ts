@@ -56,176 +56,101 @@ export class WorkDialogComponent implements OnInit {
     });
 
   }
-  changedBomb(event, bomb, type) {
-    //console.log(event)
-    console.log(bomb)
-    switch (type) {
-      case 'yes':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.yes = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'no':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.no = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'repair':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.repair = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'supply':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.supply = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'demand':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.demand = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'stock':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.stock = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-      case 'description':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.description = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-    }
-
-
-
-  }
-
-  changedMotor(event, bomb, type) {
-    //console.log(event)
-    /*console.log(bomb) */
-    switch (type) {
-      case 'yes':
-        this.bomb_pieces_motor_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.yes = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'no':
-        this.bomb_pieces_motor_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.no = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'repair':
-        this.bomb_pieces_motor_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.repair = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'supply':
-        this.bomb_pieces_motor_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.supply = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'demand':
-        this.bomb_pieces_motor_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.demand = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-      case 'stock':
-        this.bomb_pieces_motor_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.stock = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-      case 'description':
-        this.bomb_pieces_motor_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.description = event.target.checked;
-            /* console.log(x); */
-          }
-        });
-        break;
-    }
-
-
-
-  }
+  
   saveOrder() {
     let data = this.form.value;
     data.user_id = this.user.id;
-
-    let bomb_inspection = this.bomb_pieces_bomb_inspection;
-    console.log('Inspecciones de bombas');
-    console.log(bomb_inspection);
-
-    let motor_inspection = this.bomb_pieces_motor_inspection;
-    console.log('Inspecciones de motor');
-    console.log(motor_inspection);
-
-    this.oppService.saveInspecionPiece(bomb_inspection).subscribe(response => {
-      console.log(response);
-      this.closeDialog(response);
-
-    });
-    this.oppService.saveInspecionPiece(motor_inspection).subscribe(response => {
-      console.log(response);
-      this.closeDialog(response);
-
-    });
     console.log(data);
-    this.oppService.saveWorkOrder(data).subscribe(response => {
-      this.closeDialog(response); 
+      this.oppService.saveWorkOrder(data).subscribe(response => {
+         this.closeDialog(response); 
+      });
 
-    });
+      console.log(this.bomb_pieces_bomb_inspection);
+
+
+
+  }
+  changedBomb(event, bomb, type) {
+    console.log(bomb)
+    switch (type) {
+      case 'yes':
+       this.bomb_pieces_bomb_inspection.map(x => {
+         if (x.piece_bomb_id == bomb.piece_bomb_id) {
+           x.yes = event.target.checked;
+ 
+         }
+       });
+       break;
+     case 'no':
+       this.bomb_pieces_bomb_inspection.map(x => {
+         if (x.piece_bomb_id == bomb.piece_bomb_id) {
+           x.no = event.target.checked;
+          
+         }
+       });
+       break;
+     case 'repair':
+       this.bomb_pieces_bomb_inspection.map(x => {
+         if (x.piece_bomb_id == bomb.piece_bomb_id) {
+           x.repair = event.target.checked;
+          
+         }
+       });
+       break;
+     case 'supply':
+       this.bomb_pieces_bomb_inspection.map(x => {
+         if (x.piece_bomb_id == bomb.piece_bomb_id) {
+           x.supply = event.target.checked;
+          
+         }
+       });
+       break;
+     case 'demand':
+       this.bomb_pieces_bomb_inspection.map(x => {
+         if (x.piece_bomb_id == bomb.piece_bomb_id) {
+           x.demand = event.target.checked;
+          
+         }
+       });
+       break;
+     case 'stock':
+       this.bomb_pieces_bomb_inspection.map(x => {
+         if (x.piece_bomb_id == bomb.piece_bomb_id) {
+           x.stock = event.target.checked;
+          
+         }
+       });
+     case 'description':
+       this.bomb_pieces_bomb_inspection.map(x => {
+         if (x.piece_bomb_id == bomb.piece_bomb_id) {
+           x.description = event.target.checked;
+          
+         }
+       });
+       break;
+   }
+   
+/* 
+    
+ */
+
+
   }
   ngOnInit(): void {
 
     this.form.patchValue(this.work_order);
 
-    this.oppService.getPiecesByBombId(this.work_order.type_bomb_id, this.work_order.id, 'Bomba').subscribe(response => {
-      this.bomb_pieces_bomb_inspection = response.pieces;
-      console.log(this.bomb_pieces_bomb_inspection);
-    });
-    this.oppService.getPiecesByBombId(this.work_order.type_bomb_id, this.work_order.id, 'Partes Motor').subscribe(response => {
-      this.bomb_pieces_motor_inspection = response.pieces;
-      console.log(this.bomb_pieces_motor_inspection);
-
-    });
+    /* console.log(this.work_order) */
+         this.oppService.getPiecesInspection('Bomba', this.work_order.id).subscribe(response => {
+          this.bomb_pieces_bomb_inspection = response.pieces_inspection;
+          console.log(this.bomb_pieces_bomb_inspection);
+        });
+        this.oppService.getPiecesInspection('Partes Motor',this.work_order.id).subscribe(response => {
+          this.bomb_pieces_motor_inspection = response.pieces_inspection;
+          console.log(this.bomb_pieces_motor_inspection);
+    
+        }); 
+        
 
   }
 
@@ -235,3 +160,162 @@ export class WorkDialogComponent implements OnInit {
   }
 
 }
+
+
+
+/* changedBomb(event, bomb, type) {
+    //console.log(event)
+    console.log(bomb)
+    switch (type) {
+      case 'yes':
+        this.bomb_pieces_bomb_inspection.map(x => {
+          if (x.piece_bomb_id == bomb.piece_bomb_id) {
+            x.yes = event.target.checked;
+           
+          }
+        });
+        break;
+      case 'no':
+        this.bomb_pieces_bomb_inspection.map(x => {
+          if (x.piece_bomb_id == bomb.piece_bomb_id) {
+            x.no = event.target.checked;
+           
+          }
+        });
+        break;
+      case 'repair':
+        this.bomb_pieces_bomb_inspection.map(x => {
+          if (x.piece_bomb_id == bomb.piece_bomb_id) {
+            x.repair = event.target.checked;
+           
+          }
+        });
+        break;
+      case 'supply':
+        this.bomb_pieces_bomb_inspection.map(x => {
+          if (x.piece_bomb_id == bomb.piece_bomb_id) {
+            x.supply = event.target.checked;
+           
+          }
+        });
+        break;
+      case 'demand':
+        this.bomb_pieces_bomb_inspection.map(x => {
+          if (x.piece_bomb_id == bomb.piece_bomb_id) {
+            x.demand = event.target.checked;
+           
+          }
+        });
+        break;
+      case 'stock':
+        this.bomb_pieces_bomb_inspection.map(x => {
+          if (x.piece_bomb_id == bomb.piece_bomb_id) {
+            x.stock = event.target.checked;
+           
+          }
+        });
+      case 'description':
+        this.bomb_pieces_bomb_inspection.map(x => {
+          if (x.piece_bomb_id == bomb.piece_bomb_id) {
+            x.description = event.target.checked;
+           
+          }
+        });
+        break;
+    }
+
+
+
+  } */
+
+  /*  changedMotor(event, bomb, type) {
+ 
+     switch (type) {
+       case 'yes':
+         this.bomb_pieces_motor_inspection.map(x => {
+           if (x.piece_bomb_id == bomb.piece_bomb_id) {
+             x.yes = event.target.checked;
+            
+           }
+         });
+         break;
+       case 'no':
+         this.bomb_pieces_motor_inspection.map(x => {
+           if (x.piece_bomb_id == bomb.piece_bomb_id) {
+             x.no = event.target.checked;
+            
+           }
+         });
+         break;
+       case 'repair':
+         this.bomb_pieces_motor_inspection.map(x => {
+           if (x.piece_bomb_id == bomb.piece_bomb_id) {
+             x.repair = event.target.checked;
+            
+           }
+         });
+         break;
+       case 'supply':
+         this.bomb_pieces_motor_inspection.map(x => {
+           if (x.piece_bomb_id == bomb.piece_bomb_id) {
+             x.supply = event.target.checked;
+            
+           }
+         });
+         break;
+       case 'demand':
+         this.bomb_pieces_motor_inspection.map(x => {
+           if (x.piece_bomb_id == bomb.piece_bomb_id) {
+             x.demand = event.target.checked;
+            
+           }
+         });
+         break;
+       case 'stock':
+         this.bomb_pieces_motor_inspection.map(x => {
+           if (x.piece_bomb_id == bomb.piece_bomb_id) {
+             x.stock = event.target.checked;
+            
+           }
+         });
+       case 'description':
+         this.bomb_pieces_motor_inspection.map(x => {
+           if (x.piece_bomb_id == bomb.piece_bomb_id) {
+             x.description = event.target.checked;
+            
+           }
+         });
+         break;
+     }
+ 
+ 
+ 
+   } */
+/* 
+    let bomb_inspection = this.bomb_pieces_bomb_inspection;
+    console.log('Inspecciones de bombas');
+    console.log(bomb_inspection);
+
+    let motor_inspection = this.bomb_pieces_motor_inspection;
+    console.log('Inspecciones de motor');
+    console.log(motor_inspection); */
+ 
+/* 
+    if (this.user.role_id == 3) {
+      this.oppService.saveInspecionPiece(bomb_inspection).subscribe(response => {
+        console.log(response);
+        this.closeDialog(response);
+
+      });
+      this.oppService.saveInspecionPiece(motor_inspection).subscribe(response => {
+        console.log(response);
+        this.closeDialog(response);
+
+      });
+    } else {
+     
+      console.log(data);
+      this.oppService.saveWorkOrder(data).subscribe(response => {
+        this.closeDialog(response);
+      });
+    } */

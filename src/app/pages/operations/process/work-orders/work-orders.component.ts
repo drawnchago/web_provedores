@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 
 import { User } from 'src/app/shared/Interfaces/user';
 import { WorkFormatComponent } from './work-format/work-format.component';
+import { WorkOrderDetailComponent } from './work-order-detail/work-order-detail.component';
 declare var require: any;
 
 @Component({
@@ -32,14 +33,20 @@ export class WorkOrdersComponent implements OnInit {
 
   
   ngOnInit(): void {
-    /* this.dataSource.sort = this.sort; */
+    
+    this.oppService.getWorkOrders().subscribe(response => {
+      this.work_orders = response.data;
+      this.dataSource = new MatTableDataSource<WorkOrder>(this.work_orders);
+      console.log(this.work_orders);  
+    });
+  }
+  refresh(){
     this.oppService.getWorkOrders().subscribe(response => {
       /*  console.log(this.work_orders);  */
       this.work_orders = response.data;
-      this.dataSource = new MatTableDataSource<WorkOrder>(this.work_orders);
+      this.dataSource.data = this.work_orders;
     });
   }
-
   openDialog(action: string, obj: any ) {
     
     obj.action = action;
@@ -48,10 +55,20 @@ export class WorkOrdersComponent implements OnInit {
       data: obj,
       width: '60%'
     });
+    dialogRef.afterClosed().subscribe(response =>{
+      this.refresh();
+    })
   }
   editData(action: string, obj: any){
     obj.action = action;
     const dialogRef = this.dialog.open(WorkDialogComponent, {
+      data: obj,
+      width: '60%'
+    });
+  }
+  oderDetail(action: string, obj: any){
+    obj.action = action;
+    const dialogRef = this.dialog.open(WorkOrderDetailComponent, {
       data: obj,
       width: '60%'
     });

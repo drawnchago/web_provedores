@@ -270,9 +270,9 @@
       <div fxFlex="100" fxFlex.gt-md="10">
         <div class="m-r-15 m-l-15">
           <b  [ngClass]="{
-              yes: element.repair == 1,
-              no: element.repair == 0
-            }">{{ element.repair == 1 ? "✓" : "x" }}</b>
+              yes: element.supply == 1,
+              no: element.supply == 0
+            }">{{ element.supply == 1 ? "✓" : "x" }}</b>
         </div>
       </div>
       <div fxFlex="100" fxFlex.gt-md="10">
@@ -286,17 +286,17 @@
       <div fxFlex="100" fxFlex.gt-md="10">
         <div class="m-r-15 m-l-15">
           <b  [ngClass]="{
-              yes: element.yes == 1,
-              no: element.yes == 0
-            }">{{ element.yes == 1 ? "✓" : "x" }}</b>
+              yes: element.stock == 1,
+              no: element.stock == 0
+            }">{{ element.stock == 1 ? "✓" : "x" }}</b>
         </div>
       </div>
       <div fxFlex="100" fxFlex.gt-md="10">
         <div class="">
           <b  [ngClass]="{
-              yes: element.yes == 1,
-              no: element.yes == 0
-            }">{{ element.yes == 1 ? "✓" : "x" }}</b>
+              yes: element.description == 1,
+              no: element.description == 0
+            }">{{ element.description == 1 ? "✓" : "x" }}</b>
         </div>
       </div>
     </div>

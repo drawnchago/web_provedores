@@ -1,0 +1,154 @@
+<h2 class="font-medium" mat-dialog-title>
+    <strong>{{ action }} Orden de Trabajo</strong>
+  </h2>
+  <mat-dialog-content class="pb-3">
+  <!--   <form [formGroup]="form" (ngSubmit)="saveOrder()"> -->
+      <mat-tab-group dynamicHeight>
+        
+        <mat-tab label="Inspeccion de Piezas de Bomba">
+          <br />
+          <div fxLayout="column" >
+            <div
+              *ngFor="let element of bomb_pieces_bomb_inspection; let i = index"
+            >
+              <div fxLayout="row"  fxLayoutAlign="center center">
+                <div fxFlex="20" >
+                 {{ element.piece }}:
+                </div>
+                <div fxFlex="5" class="flex-p">
+                  <input
+                    type="checkbox"
+                    color="warn"
+                    [checked]="isChecked"
+                    (change)="changedBomb($event, element, 'yes')"
+                  />
+                  Si
+                </div>
+                <div fxFlex="5" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedBomb($event, element, 'no')"
+                  />
+                  No
+                </div>
+                <div fxFlex="15" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedBomb($event, element, 'repair')"
+                  />
+                  Reparacion
+                </div>
+                <div fxFlex="12" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedBomb($event, element, 'supply')"
+                  />
+                  Suministro
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedBomb($event, element, 'demand')"
+                  />
+                  Solicitar
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedBomb($event, element, 'stock')"
+                  />
+                  Stock
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedBomb($event, element, 'description')"
+                  />
+                  Desc.
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+          <mat-tab label="Inspeccion de Piezas de Motor">
+          <br />
+          <div fxLayout="column" >
+            <div *ngFor="let element of bomb_pieces_motor_inspection; let i = index">
+              <div fxLayout="row"  fxLayoutAlign="center center">
+                <div fxFlex="20" >
+                 {{ element.piece }}:
+                </div>
+                <div fxFlex="5" class="flex-p">
+                  <input
+                    type="checkbox"
+                    color="warn"
+                    [checked]="isChecked"
+                    (change)="changedMotor($event, element, 'yes')"
+                  />
+                  Si
+                </div>
+                <div fxFlex="5" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedMotor($event, element, 'no')"
+                  />
+                  No
+                </div>
+                <div fxFlex="15" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedMotor($event, element, 'repair')"
+                  />
+                  Reparacion
+                </div>
+                <div fxFlex="12" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedMotor($event, element, 'supply')"
+                  />
+                  Suministro
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedMotor($event, element, 'demand')"
+                  />
+                  Solicitar
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedMotor($event, element, 'stock')"
+                  />
+                  Stock
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="isChecked"
+                    (change)="changedMotor($event, element, 'description')"
+                  />
+                  Desc.
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-tab> 
+      </mat-tab-group>
+      <button mat-raised-button color="primary"  (click)="saveOrder()">Guardar</button>
+
+
+   <!--  </form> -->
+  </mat-dialog-content>
+  

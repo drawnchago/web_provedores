@@ -264,13 +264,14 @@
           >
             <div fxLayout="row"  fxLayoutAlign="center center">
               <div fxFlex="20" >
-               {{ element.piece }}:
+               {{ element.piece_bomb }}:
               </div>
               <div fxFlex="5" class="flex-p">
                 <input
                   type="checkbox"
                   color="warn"
-                  [checked]="isChecked"
+                  [checked]="element.yes==1"
+                  [value]="element.yes"
                   (change)="changedBomb($event, element, 'yes')"
                 />
                 Si
@@ -278,7 +279,8 @@
               <div fxFlex="5" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.no==1"
+                  [value]="element.no"
                   (change)="changedBomb($event, element, 'no')"
                 />
                 No
@@ -286,7 +288,8 @@
               <div fxFlex="15" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.repair==1"
+                  [value]="element.repair"
                   (change)="changedBomb($event, element, 'repair')"
                 />
                 Reparacion
@@ -294,7 +297,8 @@
               <div fxFlex="12" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.supply==1"
+                  [value]="element.supply"
                   (change)="changedBomb($event, element, 'supply')"
                 />
                 Suministro
@@ -302,7 +306,8 @@
               <div fxFlex="11.4" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.demand==1"
+                  [value]="element.demand"
                   (change)="changedBomb($event, element, 'demand')"
                 />
                 Solicitar
@@ -310,7 +315,8 @@
               <div fxFlex="11.4" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.stock==1"
+                  [value]="element.stock"
                   (change)="changedBomb($event, element, 'stock')"
                 />
                 Stock
@@ -318,7 +324,8 @@
               <div fxFlex="11.4" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.description==1"
+                  [value]="element.description"
                   (change)="changedBomb($event, element, 'description')"
                 />
                 Desc.
@@ -333,13 +340,13 @@
           <div *ngFor="let element of bomb_pieces_motor_inspection; let i = index">
             <div fxLayout="row"  fxLayoutAlign="center center">
               <div fxFlex="20" >
-               {{ element.piece }}:
+               {{ element.piece_bomb }}:
               </div>
               <div fxFlex="5" class="flex-p">
                 <input
                   type="checkbox"
                   color="warn"
-                  [checked]="isChecked"
+                  [checked]="element.yes==1"
                   (change)="changedMotor($event, element, 'yes')"
                 />
                 Si
@@ -347,7 +354,7 @@
               <div fxFlex="5" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.no==1"
                   (change)="changedMotor($event, element, 'no')"
                 />
                 No
@@ -355,7 +362,7 @@
               <div fxFlex="15" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.repair==1"
                   (change)="changedMotor($event, element, 'repair')"
                 />
                 Reparacion
@@ -363,7 +370,7 @@
               <div fxFlex="12" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.supply==1"
                   (change)="changedMotor($event, element, 'supply')"
                 />
                 Suministro
@@ -371,7 +378,7 @@
               <div fxFlex="11.4" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.demand==1"
                   (change)="changedMotor($event, element, 'demand')"
                 />
                 Solicitar
@@ -379,7 +386,7 @@
               <div fxFlex="11.4" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.stock==1"
                   (change)="changedMotor($event, element, 'stock')"
                 />
                 Stock
@@ -387,7 +394,7 @@
               <div fxFlex="11.4" class="flex-p">
                 <input
                   type="checkbox"
-                  [checked]="isChecked"
+                  [checked]="element.description==1"
                   (change)="changedMotor($event, element, 'description')"
                 />
                 Desc.
@@ -396,9 +403,9 @@
           </div>
         </div>
       </mat-tab> 
-    </ng-container>
+    </ng-container> 
 
     </mat-tab-group>
-    <button mat-raised-button type="submit" color="primary">Guardar</button>
+    <button mat-raised-button type="submit" [disabled]="!form.valid" color="primary">Guardar</button>
   </form>
 </mat-dialog-content>
