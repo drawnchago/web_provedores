@@ -5,13 +5,15 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/shared/Interfaces/user';
 import { WorkOrder } from 'src/app/shared/Interfaces/work_order';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { CatalogsService } from '../../../catalogs/catalogs.service';
+import { OppCatalogsService } from '../../../catalogs/opp-catalogs.service';
 import { OperationsService } from '../../../operations.service';
+import { GeneralService } from 'src/app/shared/services/general.service';
 
 @Component({
   selector: 'app-work-format',
   templateUrl: './work-format.component.html',
-  styleUrls: ['./work-format.component.scss']
+  styleUrls: ['./work-format.component.scss'],
+  providers: [GeneralService]
 })
 export class WorkFormatComponent implements OnInit {
   action: string;
@@ -31,7 +33,8 @@ export class WorkFormatComponent implements OnInit {
   public cellphone_1: string;
   constructor(public dialogRef: MatDialogRef<WorkFormatComponent>,
     public toast: ToastrService,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: any, private services: CatalogsService,
+    private generalSerice: GeneralService,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any, private service: OppCatalogsService,
 
     private oppService: OperationsService) {
     this.work_order = { ...data };
@@ -56,7 +59,7 @@ export class WorkFormatComponent implements OnInit {
   valid() {
     let id = 1;
 
-    this.services.getBranchOffice(id).subscribe(response => {
+    this.generalSerice.getBranchOffice(id).subscribe(response => {
       console.log(response);
 
       this.description = response['branchOffices']['description'];

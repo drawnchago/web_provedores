@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { ModelsBombDialogComponent } from './models-bomb-dialog/models-bomb-dialog.component';
-import { CatalogsService } from '../catalogs.service';
+import { OppCatalogsService } from '../opp-catalogs.service';
 import { ModelBomb } from './models-bomb.model';
 
 declare var $: any;
@@ -14,7 +14,7 @@ declare var $: any;
   selector: 'app-models-bomb',
   templateUrl: './models-bomb.component.html',
   styleUrls: ['./models-bomb.component.scss'],
-  providers: [CatalogsService]
+  providers: [OppCatalogsService]
 })
 export class ModelsBombComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class ModelsBombComponent implements OnInit {
   public displayedColumns = ['name','description','status','updated_by','updated_at','created_by','created_at','action'];
 
   constructor(
-              private services: CatalogsService,
+              private services: OppCatalogsService,
               private toastr: ToastrService,
               public dialog: MatDialog) 
               {
@@ -85,17 +85,6 @@ export class ModelsBombComponent implements OnInit {
     })
   }
   load(){
-
-    this.services.getCustomers().subscribe(response=>{
-
-      if(!response['success']){
-        this.toastr.error(response['message']);
-        return;
-      }
-
-      this.modelBomb = response['modelsBomb'];
-      this.dataSource = new MatTableDataSource<ModelBomb>(this.modelBomb);
-    });
 
   }
 

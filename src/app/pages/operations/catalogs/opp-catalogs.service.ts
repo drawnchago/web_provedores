@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CatalogsService {
+export class OppCatalogsService {
   private readonly urlBase = '/api/';
   
   constructor(private httpClient: HttpClient) { }
@@ -55,23 +55,5 @@ export class CatalogsService {
   deleteModelBomb(id:number): Observable<any>{
     return this.httpClient.post<any>(this.urlBase + 'deleteModelBomb?id=' + id ,id);
   }
-  //CUSTOMERS
-  getCustomers(): Observable<any>{
-      return this.httpClient.get<any>(this.urlBase + 'getCustomers');
-    }
-    
-  saveCustomer(data): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'saveCustomer?name=' + data.name        +
-                                                        '&description='  + data.description +      
-                                                        '&userId='       + data.userId      +      
-                                                        '&status='       + data.status      ,data);
-  }
-
-  deleteCustomer(id:number): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'deleteCustomer?id=' + id ,id);
-  }
-  //
-  getBranchOffice(id:number): Observable<any>{
-    return this.httpClient.get<any>(this.urlBase + 'getBranchOffice?id='+ id);
-  }
+  
 }

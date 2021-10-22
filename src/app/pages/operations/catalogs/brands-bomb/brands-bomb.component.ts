@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { BrandsBombDialogComponent } from './brands-bomb-dialog/brands-bomb-dialog.component';
-import { CatalogsService } from '../catalogs.service';
+import { OppCatalogsService } from '../opp-catalogs.service';
 import { brandsBomb } from './brands-bomb.model';
 
 declare var $: any;
@@ -14,7 +14,7 @@ declare var $: any;
   selector: 'app-brands-bomb',
   templateUrl: './brands-bomb.component.html',
   styleUrls: ['./brands-bomb.component.scss'],
-  providers: [CatalogsService]
+  providers: [OppCatalogsService]
 })
 export class BrandsBombComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class BrandsBombComponent implements OnInit {
   public displayedColumns = ['name','description','status','updated_by','updated_at','created_by','created_at','action'];
 
   constructor(
-              private services: CatalogsService,
+              private services: OppCatalogsService,
               private toastr: ToastrService,
               public dialog: MatDialog) 
               {

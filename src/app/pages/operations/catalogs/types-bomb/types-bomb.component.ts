@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { TypesBombDialogComponent } from './types-bomb-dialog/types-bomb-dialog.component';
-import { CatalogsService } from '../catalogs.service';
+import { OppCatalogsService } from '../opp-catalogs.service';
 import { typesBomb } from './types-bomb.model';
 
 declare var $: any;
@@ -14,7 +14,7 @@ declare var $: any;
   selector: 'app-types-bomb',
   templateUrl: './types-bomb.component.html',
   styleUrls: ['./types-bomb.component.scss'],
-  providers: [CatalogsService]
+  providers: [OppCatalogsService]
 })
 export class TypesBombComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class TypesBombComponent implements OnInit {
   public displayedColumns = ['name','description','status','updated_by','updated_at','created_by','created_at','action'];
 
   constructor(
-              private services: CatalogsService,
+              private service: OppCatalogsService,
               private toastr: ToastrService,
               public dialog: MatDialog) 
               {
@@ -73,7 +73,7 @@ export class TypesBombComponent implements OnInit {
   delete(element){
     
     let id = element.id;
-    this.services.deleteTypeBomb(id).subscribe(response=>{
+    this.service.deleteTypeBomb(id).subscribe(response=>{
 
       if(!response['success']){
         this.toastr.error(response['message']);
@@ -86,7 +86,7 @@ export class TypesBombComponent implements OnInit {
   }
   load(){
 
-    this.services.getTypesBomb().subscribe(response=>{
+    this.service.getTypesBomb().subscribe(response=>{
 
       if(!response['success']){
         this.toastr.error(response['message']);

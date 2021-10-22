@@ -4,14 +4,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { CatalogsService } from '../../catalogs.service';
+import { OppCatalogsService } from '../../opp-catalogs.service';
 import { ModelBomb } from './models-bomb-dialog.model';
 
 @Component({
   selector: 'app-models-bomb-dialog',
   templateUrl: './models-bomb-dialog.component.html',
   styleUrls: ['./models-bomb-dialog.component.scss'],
-  providers: [CatalogsService]
+  providers: [OppCatalogsService]
 })
 export class ModelsBombDialogComponent implements OnInit {
 
@@ -28,7 +28,7 @@ export class ModelsBombDialogComponent implements OnInit {
   constructor(
               public dialogRef : MatDialogRef<ModelsBombDialogComponent>,
               public fb        : FormBuilder,
-              public service   : CatalogsService,
+              public service   : OppCatalogsService,
               private toastr   : ToastrService,
               @Optional() @Inject(MAT_DIALOG_DATA) public data: any)
                {

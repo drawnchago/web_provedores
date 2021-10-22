@@ -17,8 +17,6 @@ import { BrandsBombComponent } from './catalogs/brands-bomb/brands-bomb.componen
 import { BrandsBombDialogComponent } from './catalogs/brands-bomb/brands-bomb-dialog/brands-bomb-dialog.component';
 import { ModelsBombComponent } from './catalogs/models-bomb/models-bomb.component';
 import { ModelsBombDialogComponent } from './catalogs/models-bomb/models-bomb-dialog/models-bomb-dialog.component';
-import { CustomersComponent } from './catalogs/customers/customers.component';
-import { CustomersDialogComponent } from './catalogs/customers/customers-dialog/customers-dialog.component';
 import { WorkOrderDetailComponent } from './process/work-orders/work-order-detail/work-order-detail.component';
 // import { WorkDialogComponent } from './process/work-orders/work-dialog/work-dialog.component';
 
@@ -34,8 +32,6 @@ import { WorkOrderDetailComponent } from './process/work-orders/work-order-detai
     BrandsBombDialogComponent,
     ModelsBombComponent,
     ModelsBombDialogComponent,
-    CustomersComponent,
-    CustomersDialogComponent,
     WorkOrderDetailComponent
   ],
   imports: [

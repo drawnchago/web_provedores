@@ -2,12 +2,12 @@ import { Component, OnInit, Inject, Optional  , ViewChild, ElementRef } from '@a
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
-
+import { AdmonCatalogsService } from '../admon-catalogs.service';
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { CustomersDialogComponent } from './customers-dialog/customers-dialog.component';
 import { CreatePdfComponent } from '../../../../shared/components/create-pdf/create-pdf.component';
-import { CatalogsService } from '../catalogs.service';
 import { Customers } from './customers.model';
+import { GeneralService } from 'src/app/shared/services/general.service';
 import  jsPDF  from "jspdf";
 import 'jspdf-autotable';
 declare var $: any;
@@ -16,7 +16,7 @@ declare var $: any;
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss'],
-  providers: [CatalogsService]
+  providers: [AdmonCatalogsService, GeneralService]
 })
 export class CustomersComponent implements OnInit {
   // private create     : CreatePdfComponent;
@@ -39,9 +39,10 @@ export class CustomersComponent implements OnInit {
   @ViewChild('seccion2', {static: false}) seccion2: ElementRef;
 
   constructor(
-              private services: CatalogsService,
+              private service: AdmonCatalogsService,
               private toastr: ToastrService,
-              public dialog: MatDialog) 
+              public dialog: MatDialog,
+              private generalService: GeneralService) 
               {
 
               this.load();
@@ -88,7 +89,7 @@ export class CustomersComponent implements OnInit {
   delete(element){
     
     let id = element.id;
-    this.services.deleteCustomer(id).subscribe(response=>{
+    this.service.deleteCustomer(id).subscribe(response=>{
 
       if(!response['success']){
         this.toastr.error(response['message']);
@@ -101,7 +102,7 @@ export class CustomersComponent implements OnInit {
   }
   load(){
 
-    this.services.getCustomers().subscribe(response=>{
+    this.service.getCustomers().subscribe(response=>{
 
       if(!response['success']){
         this.toastr.error(response['message']);
@@ -126,7 +127,7 @@ export class CustomersComponent implements OnInit {
   valid(){
     let id =1 ;
 
-    this.services.getBranchOffice(id).subscribe(response=>{
+    this.generalService.getBranchOffice(id).subscribe(response=>{
       console.log(response);
 
       this.description     = response['branchOffices']['description'];
