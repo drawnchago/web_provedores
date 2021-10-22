@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { BrandsBombDialogComponent } from './brands-bomb-dialog/brands-bomb-dialog.component';
-import { OppCatalogsService } from '../opp-catalogs.service';
+import { OppCatalogsService } from '../op-catalogs.service';
 import { brandsBomb } from './brands-bomb.model';
 
 declare var $: any;

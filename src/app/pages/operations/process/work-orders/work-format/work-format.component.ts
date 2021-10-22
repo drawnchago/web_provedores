@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/shared/Interfaces/user';
 import { WorkOrder } from 'src/app/shared/Interfaces/work_order';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { OppCatalogsService } from '../../../catalogs/opp-catalogs.service';
+import { OppCatalogsService } from '../../../catalogs/op-catalogs.service';
 import { OperationsService } from '../../../operations.service';
 import { GeneralService } from 'src/app/shared/services/general.service';
 

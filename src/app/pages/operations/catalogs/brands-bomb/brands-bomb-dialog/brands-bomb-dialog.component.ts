@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { OppCatalogsService } from '../../opp-catalogs.service';
+import { OppCatalogsService } from '../../op-catalogs.service';
 import { BrandBomb } from './brands-bomb-dialog.model';
 
 @Component({
