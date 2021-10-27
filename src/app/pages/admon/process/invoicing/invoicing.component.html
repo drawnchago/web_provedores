@@ -1,1 +1,283 @@
-<p>invoicing works!</p>
+<div fxLayout="row wrap">
+    <mat-horizontal-stepper #stepper fxFlex="100" linear (selectionChange)="selectionChange($event)">
+        <mat-step [completed]="step1" label="SELECCIONA LAS ORDENES">
+            <div fxLayout="row wrap">
+                <div fxFlex="100">
+                    <mat-card>
+                        <mat-card-content style="padding: 10px;">
+                            <form [formGroup]="filterForm">
+                                <div fxLayout="row wrap" fxLayoutGap="10px" class="align-items-center">
+
+                                    <div fxFlex.gt-md="25" fxFlex.gt-lg="25" fxFlex="100">
+                                        <mat-form-field fxFlex="100">
+                                            <input matInput [matDatepicker]="startDate" placeholder="Fecha inicio"
+                                                formControlName="startDate">
+                                            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                                            <mat-datepicker #startDate></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxFlex.gt-md="25" fxFlex.gt-lg="25" fxFlex="100">
+                                        <mat-form-field fxFlex="100">
+                                            <input matInput [matDatepicker]="endDate" (dateChange)="refresh()"
+                                                placeholder="Fecha fin" formControlName="endDate">
+                                            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                                            <mat-datepicker #endDate></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+
+            <div fxLayout="row wrap">
+                <div fxLayout="column" fxFlex="100">
+                    <mat-form-field class="p-l-20">
+                        <input matInput (keyup)="filter($event.target.value)" placeholder="Buscar">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100">
+                    <mat-card>
+                        <mat-card-content>
+
+                            <div fxLayout="row wrap">
+                                <div fxFlex="100">
+                                    <div class="table-responsive">
+                                        <table mat-table [dataSource]="dataSource" class="table employee-list no-wrap">
+                                            <ng-container matColumnDef="#">
+                                                <th mat-header-cell *matHeaderCellDef>#</th>
+                                                <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+                                            </ng-container>
+
+                                            <ng-container matColumnDef="type_bomb">
+                                                <th mat-header-cell *matHeaderCellDef>Tipo de bomba</th>
+                                                <td mat-cell *matCellDef="let element">{{ element.bomb }}</td>
+                                            </ng-container>
+
+                                            <ng-container matColumnDef="customer">
+                                                <th mat-header-cell *matHeaderCellDef>Cliente</th>
+                                                <td mat-cell *matCellDef="let element">{{ element.customer }}</td>
+                                            </ng-container>
+
+                                            <ng-container matColumnDef="brand">
+                                                <th mat-header-cell *matHeaderCellDef>Marca</th>
+                                                <td mat-cell *matCellDef="let element">{{ element.brand }}</td>
+                                            </ng-container>
+
+                                            <ng-container matColumnDef="model">
+                                                <th mat-header-cell *matHeaderCellDef>Modelo</th>
+                                                <td mat-cell *matCellDef="let element">{{ element.model }}</td>
+                                            </ng-container>
+
+                                            <ng-container matColumnDef="total">
+                                                <th mat-header-cell *matHeaderCellDef>Total</th>
+                                                <td mat-cell *matCellDef="let element">{{ element.total | currency }}
+                                                </td>
+                                            </ng-container>
+
+                                            <ng-container matColumnDef="created_at">
+                                                <th mat-header-cell *matHeaderCellDef>Fecha de creacion</th>
+                                                <td mat-cell *matCellDef="let element">
+                                                    {{ element.created_at }}
+                                                </td>
+                                            </ng-container>
+
+                                            <ng-container matColumnDef="action">
+                                                <th mat-header-cell *matHeaderCellDef>Facturar</th>
+                                                <td mat-cell *matCellDef="let element"><input style="zoom: 1.5;"
+                                                        type="checkbox"
+                                                        (change)="changeSelectionElement(element, $event)"
+                                                        [checked]="element.selected" /> </td>
+                                            </ng-container>
+
+                                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                                        </table>
+                                        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+                                        </mat-paginator>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step [completed]="step2" label="VERIFICA EL DETALLE">
+            <table mat-table style="width: 100%;" class="tbDetailPayments" #tbDetailPayments
+                [dataSource]="dataSourceDetail" matSort>
+
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Folio</th>
+                    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="product_key">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Clave Producto</th>
+                    <td mat-cell *matCellDef="let element">{{element.product_key}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="concept">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Concepto</th>
+                    <td mat-cell *matCellDef="let element">{{element.concept}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="unit_price">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio Unitario</th>
+                    <td mat-cell *matCellDef="let element">{{element.unit_price | currency}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="iva">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>IVA</th>
+                    <td mat-cell *matCellDef="let element">{{element.iva | currency}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="total">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
+                    <td mat-cell *matCellDef="let element">{{element.total | currency}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedDetColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedDetColumns;"></tr>
+            </table>
+            <!--<mat-paginator #paginator (page)="onPageChange($event)" [pageSize]="20" [pageSizeOptions]="[10, 20, 50, 100]" [showFirstLastButtons]="true"></mat-paginator>-->
+            <br>
+            <br>
+            <table mat-table class="tbtotal" style="width: 40%; margin-left: 60%;" [dataSource]="dataSourceTotal">
+                <ng-container matColumnDef="concept">
+                    <th mat-header-cell *matHeaderCellDef>Concepto</th>
+                    <td mat-cell *matCellDef="let element">{{element.concept}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef>Monto</th>
+                    <td mat-cell *matCellDef="let element">{{element.amount | currency}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="currency">
+                    <th mat-header-cell *matHeaderCellDef>Moneda</th>
+                    <td mat-cell *matCellDef="let element">{{element.currency}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedTotalColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedTotalColumns;"></tr>
+            </table>
+
+        </mat-step>
+        <mat-step [completed]="step3" label="TIMBRAR">
+            <div fxLayout="row" class="flex-p">
+                <div fxLayout="column" fxFlex="40">
+                  <form [formGroup]="formStamp" >
+                    <div fxLayout="column" fxFlex="70" class="form-field-outer">
+                      <div class="flex-p">
+                        <div fxLayout="row">
+                          <mat-form-field class="w-100">
+                            <input matInput placeholder="Razón social" formControlName="customer" required/>
+                            <!--<mat-error *ngIf="formStamp.controls.customer.hasError('required')">Ingresa la razón social</mat-error>-->
+                            <mat-error *ngIf="formStamp.controls.customer.hasError('whitespace')">Ingresa la razón social</mat-error>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="flex-p">
+                        <div fxLayout="row">
+                          <mat-form-field class="w-100">
+                            <input matInput placeholder="RFC" formControlName="rfc" required/>
+                            <mat-error *ngIf="formStamp.controls.rfc.hasError('required')">Ingresa el RFC</mat-error>
+                        </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="flex-p">
+                        <div fxLayout="row">
+                            <mat-form-field class="w-100">
+                                <mat-select placeholder="Método de pago" formControlName="payment_method" required>
+                                    <mat-option value="PUE">PUE - PAGO EN UNA SOLA EXHIBICION</mat-option>
+                                    <mat-option value="PPD">PUE - PAGO EN PARCIALIDADES O DIFERIDO</mat-option>
+                                </mat-select>
+                                <!--<mat-error *ngIf="formStamp.controls.payment_method.hasError('required')">Seleccione tipo de trámite</mat-error>-->
+                                <mat-error *ngIf="formStamp.controls.payment_method.hasError('whitespace')">Seleccione tipo de trámite</mat-error>
+                            </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="flex-p">
+                        <div fxLayout="row">
+                            <mat-form-field class="w-100">
+                                <mat-select placeholder="Uso de CFDI" formControlName="cfdi" required>
+                                    <mat-option value="G01">G01 - ADQUISICION DE MERCANCIAS</mat-option>
+                                    <mat-option value="G03">G03 - GASTOS EN GENERAL</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="formStamp.controls.payment_method.hasError('required')">Seleccione tipo de trámite</mat-error>
+                            </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="flex-p">
+                        <div fxLayout="row">
+                            <mat-form-field class="w-100">
+                                <mat-select placeholder="Forma de pago" formControlName="payment_way" required>
+                                    <mat-option value="01">01 - EFECTIVO</mat-option>
+                                    <mat-option value="02">02 - CHEQUE NOMINATIVO</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="formStamp.controls.payment_method.hasError('required')">Seleccione tipo de trámite</mat-error>
+                            </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="flex-p">
+                        <div fxLayout="row">
+                          <div fxLayout="column" fxFlex="50">
+                            <mat-form-field class="w-100">
+                                <input matInput placeholder="Últimos 4 digitos de la cuenta" formControlName="digits"/>
+                            </mat-form-field>
+                          </div>
+                          <div fxLayout="column" fxFlex="50">
+                            <mat-form-field class="w-100">
+                                <input matInput disabled placeholder="Condiciones de pago" formControlName="conditions"/>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div> 
+                <div fxFlex="30" class="form-field-outer">
+                  <table border="1" cellpadding="2" cellspacing="0" style="margin-left: 10px; margin-top: 10px; width: 100%;">
+                    <tbody>
+                      <tr *ngIf="formStamp.controls.payment_method.value == 'PUE'">
+                        <td valign="middle" align="center" style="width: 130px; height: 170px;" rowspan="3">
+                          <div ><img src="assets/images/icons/icono_FactDeContado.png?ver=5162" width="108" height="150" alt="icono_FactDeContado"></div>
+                        </td>
+                        <td valign="middle" align="left" style="width: auto; height: 28px; padding: 6px;">
+                          <div style="font-size: 15pt; color: rgb(0, 128, 0);"><span id="titleType">Factura de contado.</span></div>
+                        </td>
+                      </tr>
+                      <tr *ngIf="formStamp.controls.payment_method.value == 'PPD'">
+                        <td valign="middle" align="center" style="width: 130px; height: 170px;" rowspan="3">
+                          <div ><img src="assets/images/icons/icono_FactACredito.png?ver=5162" width="108" height="150" alt="icono_FactDeContado"></div>
+                        </td>
+                        <td valign="middle" align="left" style="width: auto; height: 28px; padding: 6px;">
+                          <div style="font-size: 15pt; color: rgb(0, 128, 0);"><span id="titleType">Factura a crédito.</span></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left" style="padding-top: 10px; padding-left: 8px;">
+                          <button mat-raised-button color="primary">Preview</button>        
+                          <div id="invProgressbar4" hidden="">
+                            <img src="assets/images/icons/progress_bar.gif">
+                          </div>                                         
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left" style="padding-top: 10px; padding-left: 8px;">
+                          <button mat-raised-button color="primary">Timbrar</button>
+                          <div id="invProgressbar1" hidden="">
+                            <img src="assets/images/icons/progress_bar.gif">
+                          </div>                                                     
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> 
+              </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

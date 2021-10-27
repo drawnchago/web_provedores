@@ -1,0 +1,23 @@
+.tbPayments{
+    > tr.mat-footer-row, tr.mat-row {
+        height: 38px !important;
+    }
+}
+
+.tbDetailPayments{
+    > tr.mat-footer-row, tr.mat-row {
+        height: 38px !important;
+    }
+}
+
+.tbtotal{
+    > tr.mat-footer-row, tr.mat-row {
+        height: 38px !important;
+    }
+}
+
+
+
+::ng-deep  .app.indigo-light .mat-select-disabled .mat-select-value {
+    color: black !important;
+}
