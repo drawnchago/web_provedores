@@ -6,6 +6,7 @@ import { WorkOrdersComponent } from './process/work-orders/work-orders.component
 import { TypesBombComponent } from './catalogs/types-bomb/types-bomb.component';
 import { BrandsBombComponent } from './catalogs/brands-bomb/brands-bomb.component';
 import { ModelsBombComponent } from './catalogs/models-bomb/models-bomb.component';
+import { OrderSheetsComponent } from './process/order-sheets/order-sheets.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'process/work-orders', pathMatch: 'full'},
@@ -33,6 +34,12 @@ const routes: Routes = [
     canActivate: [AuthGuard], 
     data: {id: 27}
   },
+  {
+    path: 'process/order-sheets',
+    component: OrderSheetsComponent,
+    canActivate: [AuthGuard],
+    data: {id: 56}
+  }
 ];
 
 @NgModule({

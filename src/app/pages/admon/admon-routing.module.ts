@@ -46,7 +46,14 @@ const routes: Routes = [
     path: 'process/invoicing',
     component: InvoicingComponent,
     canActivate: [AuthGuard], 
-    data: {id: 46}
+    data: {
+      id: 46,
+      title: 'Facturación',
+      urls: [
+        { title: 'Procesos' },
+        { title: 'Facturación' }
+      ]
+    }
   },
 ];
 

@@ -17,6 +17,7 @@ import { BrandsBombDialogComponent } from './catalogs/brands-bomb/brands-bomb-di
 import { ModelsBombComponent } from './catalogs/models-bomb/models-bomb.component';
 import { ModelsBombDialogComponent } from './catalogs/models-bomb/models-bomb-dialog/models-bomb-dialog.component';
 import { WorkOrderDetailComponent } from './process/work-orders/work-order-detail/work-order-detail.component';
+import { OrderSheetsComponent } from './process/order-sheets/order-sheets.component';
 // import { WorkDialogComponent } from './process/work-orders/work-dialog/work-dialog.component';
 
 
@@ -31,7 +32,8 @@ import { WorkOrderDetailComponent } from './process/work-orders/work-order-detai
     BrandsBombDialogComponent,
     ModelsBombComponent,
     ModelsBombDialogComponent,
-    WorkOrderDetailComponent
+    WorkOrderDetailComponent,
+    OrderSheetsComponent
   ],
   imports: [
     CommonModule,
