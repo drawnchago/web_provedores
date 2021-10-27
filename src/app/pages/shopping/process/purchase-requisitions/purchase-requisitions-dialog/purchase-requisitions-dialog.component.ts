@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ShProccessService} from '../../sh-process.service';
 import { PurchaseRequistion ,RequistionDetails } from './purchase-requisitions-dialog.model';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -24,6 +25,8 @@ export class PurchaseRequisitionsDialogComponent implements OnInit {
   public   status               : number;
   public   username             : string;
   public   user_id              : number;
+  public dataSource: MatTableDataSource<any>;
+  displayedColumns = ['#', 'type_bomb', 'customer', 'brand', 'model', 'total', 'created_at', 'action'];
 
   constructor(              
               public dialogRef : MatDialogRef<PurchaseRequisitionsDialogComponent>,
@@ -95,6 +98,14 @@ export class PurchaseRequisitionsDialogComponent implements OnInit {
 
   closeDialog(success):void{
     this.dialogRef.close(success);
+  }
+
+  applyFilter(filterValue){
+
+  }
+
+  openDialog(a, o){
+
   }
 
 }
