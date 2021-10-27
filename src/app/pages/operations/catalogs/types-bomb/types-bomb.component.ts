@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { TypesBombDialogComponent } from './types-bomb-dialog/types-bomb-dialog.component';
 import { OppCatalogsService } from '../op-catalogs.service';
-import { typesBomb } from './types-bomb.model';
+import { TypesBomb } from './types-bomb.model';
 
 declare var $: any;
 
@@ -19,14 +19,14 @@ declare var $: any;
 export class TypesBombComponent implements OnInit {
 
   //Table
-  public typesBomb : typesBomb[];
-  public dataSource: MatTableDataSource<typesBomb>;
+  public types_bomb       : TypesBomb[];
+  public dataSource       : MatTableDataSource<TypesBomb>;
   public displayedColumns = ['name','description','status','updated_by','updated_at','created_by','created_at','action'];
 
   constructor(
-              private service: OppCatalogsService,
-              private toastr: ToastrService,
-              public dialog: MatDialog) 
+              private service : OppCatalogsService,
+              private toastr  : ToastrService,
+              public dialog   : MatDialog) 
               {
 
               this.load();
@@ -72,29 +72,32 @@ export class TypesBombComponent implements OnInit {
 
   delete(element){
     
-    let id = element.id;
-    this.service.deleteTypeBomb(id).subscribe(response=>{
+    const data = {
+      id:element.id
+    }
+
+    this.service.deleteTypeBomb(data).subscribe(response=>{
 
       if(!response['success']){
         this.toastr.error(response['message']);
-        return;
+      }else{
+        this.toastr.success(response['message']);
       }
 
-      this.toastr.success(response['message']);
       this.load();
     })
   }
+
   load(){
 
     this.service.getTypesBomb().subscribe(response=>{
 
       if(!response['success']){
         this.toastr.error(response['message']);
-        return;
       }
 
-      this.typesBomb = response['typesBomb'];
-      this.dataSource = new MatTableDataSource<typesBomb>(this.typesBomb);
+      this.types_bomb = response['types_bomb'];
+      this.dataSource = new MatTableDataSource<TypesBomb>(this.types_bomb);
     });
 
   }

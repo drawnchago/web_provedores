@@ -16,14 +16,11 @@ export class OppCatalogsService {
   }
 
   saveTypeBomb(data): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'saveTypeBomb?name=' + data.name        +
-                                                        '&description='  + data.description +      
-                                                        '&userId='       + data.userId      +      
-                                                        '&status='       + data.status      ,data);
+    return this.httpClient.post<any>(this.urlBase + 'saveTypeBomb',data);
   }
 
-  deleteTypeBomb(id:number): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'deleteTypeBomb?id=' + id ,id);
+  deleteTypeBomb(data): Observable<any>{
+    return this.httpClient.post<any>(this.urlBase + 'deleteTypeBomb',data);
   }
   //BRAND
   getBrandsBomb(): Observable<any>{
@@ -31,14 +28,11 @@ export class OppCatalogsService {
   }
 
   saveBrandBomb(data): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'saveBrandBomb?name=' + data.name       +
-                                                        '&description='  + data.description +      
-                                                        '&userId='       + data.userId      +      
-                                                        '&status='       + data.status      ,data);
+    return this.httpClient.post<any>(this.urlBase + 'saveBrandBomb',data);
   }
 
-  deleteBrandBomb(id:number): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'deleteBrandBomb?id=' + id ,id);
+  deleteBrandBomb(data): Observable<any>{
+    return this.httpClient.post<any>(this.urlBase + 'deleteBrandBomb',data);
   }
   //MODELS
   getModelsBomb(): Observable<any>{
@@ -46,14 +40,11 @@ export class OppCatalogsService {
   }
 
   saveModelBomb(data): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'saveModelBomb?name=' + data.name       +
-                                                        '&description='  + data.description +      
-                                                        '&userId='       + data.userId      +      
-                                                        '&status='       + data.status      ,data);
+    return this.httpClient.post<any>(this.urlBase + 'saveModelBomb',data);
   }
 
-  deleteModelBomb(id:number): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'deleteModelBomb?id=' + id ,id);
+  deleteModelBomb(data): Observable<any>{
+    return this.httpClient.post<any>(this.urlBase + 'deleteModelBomb',data);
   }
   
 }

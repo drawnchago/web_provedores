@@ -1,10 +1,10 @@
-export class typesBomb{
-  id:number;
-  name:string;
-  description:string;
-  status:number;
-  updated_by:string;
-  updated_at:Date;
-  created_by:string;
-  created_at:Date;
+export class TypesBomb{
+  id          : number;
+  name        : string;
+  description : string;
+  status      : number;
+  updated_by  : string;
+  updated_at  : Date;
+  created_by  : string;
+  created_at  : Date;
 }

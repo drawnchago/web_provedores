@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { AdmonCatalogsService } from '../../admon-catalogs.service';
-import { BrandBomb } from './customers-dialog.model';
+import { Customer } from './customers-dialog.model';
 
 @Component({
   selector: 'app-customers-dialog',
@@ -15,14 +15,14 @@ import { BrandBomb } from './customers-dialog.model';
 })
 export class CustomersDialogComponent implements OnInit {
 
-  public   form: FormGroup;
-  public   action:string;
-  public   brandsBomb:BrandBomb;
-  public   name:string;
-  public   description:string;
-  public   status:number;
-  public   username:string;
-  public   userId:number;
+  public   form              : FormGroup;
+  public   action            : string;
+  public   customer          : Customer;
+  public   name              : string;
+  public   description       : string;
+  public   status            : number;
+  public   username          : string;
+  public   user_id           : number;
 
 
   constructor(
@@ -33,13 +33,13 @@ export class CustomersDialogComponent implements OnInit {
               @Optional() @Inject(MAT_DIALOG_DATA) public data: any)
                {
 
-                this.username = AuthService.getUser().username;
-                this.userId   = AuthService.getUser().id;
+                this.username  = AuthService.getUser().username;
+                this.user_id   = AuthService.getUser().id;
 
                 this.form = this.fb.group({
-                  name: [null, Validators.required],
+                  name:        [null, Validators.required],
                   description: [null, Validators.required],
-                  status: null
+                  status:      null
                 });
 
                 this.load(data);
@@ -62,24 +62,22 @@ export class CustomersDialogComponent implements OnInit {
     }
 
     const DATA = {
-            id          : this.brandsBomb.id,
+            id          : this.customer.id,
             name        : name,
             description : description,
             status      : status,
-            userId      : this.userId
+            user_id     : this.user_id
     }
-    
-    console.log(DATA);
 
     this.service.saveCustomer(DATA).subscribe(response=>{
 
       if(!response['success']){
         this.toastr.error(response['message']);
-        return;
+      }else{
+        this.toastr.success(response['message']);
+        this.closeDialog(response['success']);
       }
-
-      this.toastr.success(response['message']);
-      this.closeDialog(response['success']);
+     
     })
 
   }
@@ -87,9 +85,9 @@ export class CustomersDialogComponent implements OnInit {
   load(data){
 
     if(data){
-      this.brandsBomb     = {...data};
+      this.customer     = {...data};
       this.action       = data.action;
-      this.form.patchValue(this.brandsBomb);
+      this.form.patchValue(this.customer);
     }
   }
 

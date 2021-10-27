@@ -15,16 +15,15 @@ import { BrandBomb } from './brands-bomb-dialog.model';
 })
 export class BrandsBombDialogComponent implements OnInit {
 
-  public   form: FormGroup;
-  public   action:string;
-  public   brandsBomb:BrandBomb;
-  public   name:string;
-  public   description:string;
-  public   status:number;
-  public   username:string;
-  public   userId:number;
-
-
+  public   form        :  FormGroup;
+  public   action      : string;
+  public   brandsBomb  : BrandBomb;
+  public   name        : string;
+  public   description : string;
+  public   status      : number;
+  public   username    : string;
+  public   user_id     : number;
+ 
   constructor(
               public dialogRef : MatDialogRef<BrandsBombDialogComponent>,
               public fb        : FormBuilder,
@@ -34,7 +33,7 @@ export class BrandsBombDialogComponent implements OnInit {
                {
 
                 this.username = AuthService.getUser().username;
-                this.userId   = AuthService.getUser().id;
+                this.user_id  = AuthService.getUser().id;
 
                 this.form = this.fb.group({
                   name: [null, Validators.required],
@@ -66,10 +65,8 @@ export class BrandsBombDialogComponent implements OnInit {
             name        : name,
             description : description,
             status      : status,
-            userId      : this.userId
+            user_id      : this.user_id
     }
-    
-    console.log(DATA);
 
     this.service.saveBrandBomb(DATA).subscribe(response=>{
 
@@ -88,7 +85,7 @@ export class BrandsBombDialogComponent implements OnInit {
 
     if(data){
       this.brandsBomb     = {...data};
-      this.action       = data.action;
+      this.action         = data.action;
       this.form.patchValue(this.brandsBomb);
     }
   }

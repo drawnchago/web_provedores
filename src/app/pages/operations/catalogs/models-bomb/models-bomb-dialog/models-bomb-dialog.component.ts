@@ -15,14 +15,14 @@ import { ModelBomb } from './models-bomb-dialog.model';
 })
 export class ModelsBombDialogComponent implements OnInit {
 
-  public   form: FormGroup;
-  public   action:string;
-  public   modelBomb:ModelBomb;
-  public   name:string;
-  public   description:string;
-  public   status:number;
-  public   username:string;
-  public   userId:number;
+  public   form        : FormGroup;
+  public   action      : string;
+  public   model_bomb  : ModelBomb;
+  public   name        : string;
+  public   description : string;
+  public   status      : number;
+  public   username    : string;
+  public   user_id     : number;
 
 
   constructor(
@@ -33,8 +33,8 @@ export class ModelsBombDialogComponent implements OnInit {
               @Optional() @Inject(MAT_DIALOG_DATA) public data: any)
                {
 
-                this.username = AuthService.getUser().username;
-                this.userId   = AuthService.getUser().id;
+                this.username  = AuthService.getUser().username;
+                this.user_id   = AuthService.getUser().id;
 
                 this.form = this.fb.group({
                   name: [null, Validators.required],
@@ -62,14 +62,12 @@ export class ModelsBombDialogComponent implements OnInit {
     }
 
     const DATA = {
-            id          : this.modelBomb.id,
+            id          : this.model_bomb.id,
             name        : name,
             description : description,
             status      : status,
-            userId      : this.userId
+            user_id     : this.user_id
     }
-    
-    console.log(DATA);
 
     this.service.saveModelBomb(DATA).subscribe(response=>{
 
@@ -87,9 +85,9 @@ export class ModelsBombDialogComponent implements OnInit {
   load(data){
 
     if(data){
-      this.modelBomb     = {...data};
+      this.model_bomb   = {...data};
       this.action       = data.action;
-      this.form.patchValue(this.modelBomb);
+      this.form.patchValue(this.model_bomb);
     }
   }
 

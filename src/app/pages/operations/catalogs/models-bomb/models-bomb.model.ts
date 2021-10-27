@@ -1,10 +1,10 @@
-export class ModelBomb{
-  id:number;
-  name:string;
-  description:string;
-  status:number;
-  updated_by:string;
-  updated_at:Date;
-  created_by:string;
-  created_at:Date;
+export class ModelsBomb{
+  id          : number;
+  name        : string;
+  description : string;
+  status      : number;
+  updated_by  : string;
+  updated_at  : Date;
+  created_by  : string;
+  created_at  : Date;
 }

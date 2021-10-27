@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/shared/guard/auth.guard';
+
 import { CustomersComponent } from './catalogs/customers/customers.component';
 import { InvoicingComponent } from './process/invoicing/invoicing.component';
 import { PaymentApplicationComponent } from './process/payment-application/payment-application.component';

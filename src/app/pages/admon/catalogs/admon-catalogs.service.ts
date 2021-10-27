@@ -16,14 +16,11 @@ export class AdmonCatalogsService {
   }
   
   saveCustomer(data): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'saveCustomer?name=' + data.name        +
-                                                        '&description='  + data.description +      
-                                                        '&userId='       + data.userId      +      
-                                                        '&status='       + data.status      ,data);
+    return this.httpClient.post<any>(this.urlBase + 'saveCustomer',data);
   }
 
-  deleteCustomer(id:number): Observable<any>{
-    return this.httpClient.post<any>(this.urlBase + 'deleteCustomer?id=' + id ,id);
+  deleteCustomer(data): Observable<any>{
+    return this.httpClient.post<any>(this.urlBase + 'deleteCustomer',data);
   }
   
 }

@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { OppCatalogsService } from '../../op-catalogs.service';
-import { typesBomb } from '../types-bomb.model';
+import { TypeBomb } from '../types-bomb-dialog/types-bomb-dialog.model';
 
 @Component({
   selector: 'app-types-bomb-dialog',
@@ -15,14 +15,14 @@ import { typesBomb } from '../types-bomb.model';
 })
 export class TypesBombDialogComponent implements OnInit {
 
-  public   form: FormGroup;
-  public   action:string;
-  public   typeBomb:typesBomb;
-  public   name:string;
-  public   description:string;
-  public   status:number;
-  public   username:string;
-  public   userId:number;
+  public   form        : FormGroup;
+  public   action      : string;
+  public   type_bomb   : TypeBomb;
+  public   name        : string;
+  public   description : string;
+  public   status      : number;
+  public   username    : string;
+  public   user_id     : number;
 
 
   constructor(
@@ -34,12 +34,12 @@ export class TypesBombDialogComponent implements OnInit {
                {
 
                 this.username = AuthService.getUser().username;
-                this.userId   = AuthService.getUser().id;
+                this.user_id  = AuthService.getUser().id;
 
                 this.form = this.fb.group({
-                  name: [null, Validators.required],
+                  name:        [null, Validators.required],
                   description: [null, Validators.required],
-                  status: null
+                  status:      null
                 });
 
                 this.load(data);
@@ -62,14 +62,12 @@ export class TypesBombDialogComponent implements OnInit {
     }
 
     const DATA = {
-            id          : this.typeBomb.id,
+            id          : this.type_bomb.id,
             name        : name,
             description : description,
             status      : status,
-            userId      : this.userId
+            user_id     : this.user_id
     }
-    
-    console.log(DATA);
 
     this.service.saveTypeBomb(DATA).subscribe(response=>{
 
@@ -87,9 +85,9 @@ export class TypesBombDialogComponent implements OnInit {
   load(data){
 
     if(data){
-      this.typeBomb     = {...data};
+      this.type_bomb    = {...data};
       this.action       = data.action;
-      this.form.patchValue(this.typeBomb);
+      this.form.patchValue(this.type_bomb);
     }
   }
 

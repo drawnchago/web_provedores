@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { ModelsBombDialogComponent } from './models-bomb-dialog/models-bomb-dialog.component';
 import { OppCatalogsService } from '../op-catalogs.service';
-import { ModelBomb } from './models-bomb.model';
+import { ModelsBomb } from './models-bomb.model';
 
 declare var $: any;
 
@@ -19,8 +19,8 @@ declare var $: any;
 export class ModelsBombComponent implements OnInit {
 
   //Table
-  public modelBomb : ModelBomb[];
-  public dataSource: MatTableDataSource<ModelBomb>;
+  public models_bomb : ModelsBomb[];
+  public dataSource  : MatTableDataSource<ModelsBomb>;
   public displayedColumns = ['name','description','status','updated_by','updated_at','created_by','created_at','action'];
 
   constructor(
@@ -72,8 +72,11 @@ export class ModelsBombComponent implements OnInit {
 
   delete(element){
     
-    let id = element.id;
-    this.services.deleteModelBomb(id).subscribe(response=>{
+    const data = {
+      id:element.id
+    }
+
+    this.services.deleteModelBomb(data).subscribe(response=>{
 
       if(!response['success']){
         this.toastr.error(response['message']);
@@ -84,8 +87,17 @@ export class ModelsBombComponent implements OnInit {
       this.load();
     })
   }
-  load(){
 
+  load(){
+    this.services.getModelsBomb().subscribe(response=>{
+
+      if(!response['success']){
+        this.toastr.error(response['message']);
+      }
+
+      this.models_bomb = response['models_bomb'];
+      this.dataSource = new MatTableDataSource<ModelsBomb>(this.models_bomb);
+    });
   }
 
 }

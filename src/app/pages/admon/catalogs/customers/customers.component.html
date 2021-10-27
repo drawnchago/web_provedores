@@ -5,11 +5,11 @@
 				<div fxLayout="row wrap" class="align-items-center">
 					<div fxFlex.gt-md="25" fxFlex.gt-lg="25" fxFlex="100">
 						<mat-form-field>
-							<input matInput  (click)="applyFilter($event.target.value)" placeholder="Buscar Usuario">
+							<input matInput  (click)="applyFilter($event.target.value)" placeholder="Buscar cliente">
 						</mat-form-field>
 					</div>
 					<div fxFlex.gt-md="75" class="text-right">
-						<button mat-raised-button (click)="openDialog('Nuevo',{})" color="primary">Nuevo Usuario</button>
+						<button mat-raised-button (click)="openDialog('Nuevo',{})" color="primary">Nuevo cliente</button>
 					</div>
 				</div>
 			</mat-card-content>
@@ -70,12 +70,9 @@
 						<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 						<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 					</table>
-					<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+					<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 				</div>
 			</mat-card-content>
 		</mat-card>
 	</div>	  
-	<div> 
-		<button (click)="valid()" style="width: 50%; height: 50%;"></button>
-	</div>
-	</div>
+</div>

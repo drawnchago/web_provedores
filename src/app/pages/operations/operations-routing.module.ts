@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/shared/guard/auth.guard';
+
 import { WorkOrdersComponent } from './process/work-orders/work-orders.component';
 import { TypesBombComponent } from './catalogs/types-bomb/types-bomb.component';
 import { BrandsBombComponent } from './catalogs/brands-bomb/brands-bomb.component';

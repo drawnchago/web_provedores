@@ -2,14 +2,15 @@ import { Component, OnInit, Inject, Optional  , ViewChild, ElementRef } from '@a
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
+
 import { AdmonCatalogsService } from '../admon-catalogs.service';
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { CustomersDialogComponent } from './customers-dialog/customers-dialog.component';
-import { CreatePdfComponent } from '../../../../shared/components/create-pdf/create-pdf.component';
 import { Customers } from './customers.model';
 import { GeneralService } from 'src/app/shared/services/general.service';
 import  jsPDF  from "jspdf";
 import 'jspdf-autotable';
+
 declare var $: any;
 
 @Component({
@@ -88,8 +89,11 @@ export class CustomersComponent implements OnInit {
 
   delete(element){
     
-    let id = element.id;
-    this.service.deleteCustomer(id).subscribe(response=>{
+    const DATA ={
+      id:element.id
+    }
+    
+    this.service.deleteCustomer(DATA).subscribe(response=>{
 
       if(!response['success']){
         this.toastr.error(response['message']);

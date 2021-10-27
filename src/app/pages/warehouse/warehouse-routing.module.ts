@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/shared/guard/auth.guard';
-import { WharehousesComponent } from './catalogs/wharehouses/wharehouses.component';
+
+import { WarehousesComponent } from './catalogs/warehouses/warehouses.component';
 import { MaterialsReceiptComponent } from './process/materials-receipt/materials-receipt.component';
 import { StartingOrderComponent } from './process/starting-order/starting-order.component';
 import { StockAdjustmentComponent } from './process/stock-adjustment/stock-adjustment.component';
@@ -9,8 +10,8 @@ import { StockAdjustmentComponent } from './process/stock-adjustment/stock-adjus
 const routes: Routes = [
   { path:'', redirectTo: 'catalogs/wharehouses', pathMatch: 'full'},
   {
-    path: 'catalogs/wharehouses',
-    component: WharehousesComponent,
+    path: 'catalogs/warehouses',
+    component: WarehousesComponent,
     canActivate: [AuthGuard], 
     data: {id: 29}
   },
