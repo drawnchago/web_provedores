@@ -4,6 +4,270 @@
 <mat-dialog-content class="pb-3">
   <form [formGroup]="form" (ngSubmit)="saveOrder()">
     <mat-tab-group dynamicHeight>
+      <mat-tab label="Entrada de equipo">
+        <br />
+        <div fxLayout="column" class="form-field-outer">
+          <div fxLayout="row wrap" class="align-items-center">
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="number"
+                    formControlName="position_order"
+                    matInput
+                    required
+                    placeholder="Posicion en la hoja de pedidos"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="folio_equipment"
+                    matInput
+                    required
+                    placeholder="Folio de equipo"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="exit_pass"
+                    matInput
+                    required
+                    placeholder="Pase de salida"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="entry_date"
+                    matInput
+                    required
+                    placeholder="Fecha de entrada"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="user"
+                    matInput
+                    required
+                    placeholder="Usuario"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="33">
+              <div class="m-r-15 m-l-15">
+                
+                <mat-form-field>
+                  <mat-select
+                  placeholder="Zona"
+                  formControlName="zone"
+                  required
+                >
+                  <mat-option [value]="1">Norte</mat-option>
+                  <mat-option [value]="2">Monclova</mat-option>
+                  <mat-option [value]="3">Saltillo</mat-option>
+                </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <textarea
+                    type="text"
+                    formControlName="equipment_description"
+                    matInput
+                    required
+                    placeholder="Descripción del equipo que entrar al taller"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <mat-select
+                    placeholder="Cliente"
+                    formControlName="customer_id"
+                    required
+                  >
+                    <mat-option [value]="1">Pedro Martinez</mat-option>
+                    <mat-option [value]="2">Jose María</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- <h5 class="font-16 mat-dialog-title">
+              <strong>Tipo de entrada y lugar donde se realizara la reparacion del equipo</strong>
+            </h5> -->
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <textarea
+                    type="text"
+                    formControlName="place"
+                    matInput
+                    required
+                    placeholder="Lugar"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <mat-select
+                    placeholder="Tipo"
+                    formControlName="type"
+                    required
+                  >
+                    <mat-option [value]="1">Reparacion</mat-option>
+                    <mat-option [value]="2">Mantenimiento</mat-option>
+                    <mat-option [value]="2">Muestra</mat-option>
+                    <mat-option [value]="2">Garantia</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <textarea
+                    type="text"
+                    formControlName="description_entry"
+                    matInput
+                    required
+                    placeholder="Descripcion del posible daño o movitos de salida a reparacion"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <textarea
+                    type="text"
+                    formControlName="comments_coditions"
+                    matInput
+                    required
+                    placeholder="Condiciones del equipo,comentarios para taller o del cliente"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="25">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="equipment_application"
+                    matInput
+                    required
+                    placeholder="Aplicacion del equipo"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="25">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="handling_fluid"
+                    matInput
+                    required
+                    placeholder="Fluido que maneja"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="25">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="work_temperature"
+                    matInput
+                    required
+                    placeholder="Temperatura de trabajo"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="25">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="exposed_pressure"
+                    matInput
+                    required
+                    placeholder="Presion expuesta durante trabajo"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <input
+                    type="text"
+                    formControlName="number_or_folio_requisition"
+                    matInput
+                    required
+                    placeholder="Numero o folio de la requisición"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxFlex="100" fxFlex.gt-md="50">
+              <div class="m-r-15 m-l-15">
+                <mat-form-field>
+                  <mat-select
+                    placeholder="Prioridad"
+                    formControlName="priority_id"
+                    required
+                  >
+                    <mat-option [value]="0">0</mat-option>
+                    <mat-option [value]="1">1</mat-option>
+                    <mat-option [value]="2">2</mat-option>
+                    <mat-option [value]="3">3</mat-option>
+                    <mat-option [value]="4">4</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- <div class="image-upload">
+              <input
+                name="imageUrl"
+                type="file"
+                accept="image/*"
+              
+              />
+            </div> -->
+          </div>
+        </div>
+      </mat-tab>
+      <!-- //!! General-->
       <mat-tab label="General">
         <br />
         <div fxLayout="column" class="form-field-outer">
@@ -251,161 +515,170 @@
                 </mat-form-field>
               </div>
             </div>
+            
           </div>
         </div>
       </mat-tab>
 
-      <ng-container *ngIf="user.role_id == 3 && action == 'Editar' ">
-      <mat-tab label="Inspeccion de Piezas de Bomba">
-        <br />
-        <div fxLayout="column" >
-          <div
-            *ngFor="let element of bomb_pieces_bomb_inspection; let i = index"
-          >
-            <div fxLayout="row"  fxLayoutAlign="center center">
-              <div fxFlex="20" >
-               {{ element.piece_bomb }}:
-              </div>
-              <div fxFlex="5" class="flex-p">
-                <input
-                  type="checkbox"
-                  color="warn"
-                  [checked]="element.yes==1"
-                  [value]="element.yes"
-                  (change)="changedBomb($event, element, 'yes')"
-                />
-                Si
-              </div>
-              <div fxFlex="5" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.no==1"
-                  [value]="element.no"
-                  (change)="changedBomb($event, element, 'no')"
-                />
-                No
-              </div>
-              <div fxFlex="15" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.repair==1"
-                  [value]="element.repair"
-                  (change)="changedBomb($event, element, 'repair')"
-                />
-                Reparacion
-              </div>
-              <div fxFlex="12" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.supply==1"
-                  [value]="element.supply"
-                  (change)="changedBomb($event, element, 'supply')"
-                />
-                Suministro
-              </div>
-              <div fxFlex="11.4" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.demand==1"
-                  [value]="element.demand"
-                  (change)="changedBomb($event, element, 'demand')"
-                />
-                Solicitar
-              </div>
-              <div fxFlex="11.4" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.stock==1"
-                  [value]="element.stock"
-                  (change)="changedBomb($event, element, 'stock')"
-                />
-                Stock
-              </div>
-              <div fxFlex="11.4" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.description==1"
-                  [value]="element.description"
-                  (change)="changedBomb($event, element, 'description')"
-                />
-                Desc.
+      <!-- -->
+      <ng-container *ngIf="user.role_id == 3 && action == 'Editar'">
+        <mat-tab label="Inspeccion de Piezas de Bomba">
+          <br />
+          <div fxLayout="column">
+            <div
+              *ngFor="let element of bomb_pieces_bomb_inspection; let i = index"
+            >
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <div fxFlex="20">{{ element.piece_bomb }}:</div>
+                <div fxFlex="5" class="flex-p">
+                  <input
+                    type="checkbox"
+                    color="warn"
+                    [checked]="element.yes == 1"
+                    [value]="element.yes"
+                    (change)="changedBomb($event, element, 'yes')"
+                  />
+                  Si
+                </div>
+                <div fxFlex="5" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.no == 1"
+                    [value]="element.no"
+                    (change)="changedBomb($event, element, 'no')"
+                  />
+                  No
+                </div>
+                <div fxFlex="15" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.repair == 1"
+                    [value]="element.repair"
+                    (change)="changedBomb($event, element, 'repair')"
+                  />
+                  Reparacion
+                </div>
+                <div fxFlex="12" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.supply == 1"
+                    [value]="element.supply"
+                    (change)="changedBomb($event, element, 'supply')"
+                  />
+                  Suministro
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.demand == 1"
+                    [value]="element.demand"
+                    (change)="changedBomb($event, element, 'demand')"
+                  />
+                  Solicitar
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.stock == 1"
+                    [value]="element.stock"
+                    (change)="changedBomb($event, element, 'stock')"
+                  />
+                  Stock
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.description == 1"
+                    [value]="element.description"
+                    (change)="changedBomb($event, element, 'description')"
+                  />
+                  Desc.
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </mat-tab>
+        </mat-tab>
         <mat-tab label="Inspeccion de Piezas de Motor">
-        <br />
-        <div fxLayout="column" >
-          <div *ngFor="let element of bomb_pieces_motor_inspection; let i = index">
-            <div fxLayout="row"  fxLayoutAlign="center center">
-              <div fxFlex="20" >
-               {{ element.piece_bomb }}:
-              </div>
-              <div fxFlex="5" class="flex-p">
-                <input
-                  type="checkbox"
-                  color="warn"
-                  [checked]="element.yes==1"
-                  (change)="changedMotor($event, element, 'yes')"
-                />
-                Si
-              </div>
-              <div fxFlex="5" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.no==1"
-                  (change)="changedMotor($event, element, 'no')"
-                />
-                No
-              </div>
-              <div fxFlex="15" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.repair==1"
-                  (change)="changedMotor($event, element, 'repair')"
-                />
-                Reparacion
-              </div>
-              <div fxFlex="12" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.supply==1"
-                  (change)="changedMotor($event, element, 'supply')"
-                />
-                Suministro
-              </div>
-              <div fxFlex="11.4" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.demand==1"
-                  (change)="changedMotor($event, element, 'demand')"
-                />
-                Solicitar
-              </div>
-              <div fxFlex="11.4" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.stock==1"
-                  (change)="changedMotor($event, element, 'stock')"
-                />
-                Stock
-              </div>
-              <div fxFlex="11.4" class="flex-p">
-                <input
-                  type="checkbox"
-                  [checked]="element.description==1"
-                  (change)="changedMotor($event, element, 'description')"
-                />
-                Desc.
+          <br />
+          <div fxLayout="column">
+            <div
+              *ngFor="
+                let element of bomb_pieces_motor_inspection;
+                let i = index
+              "
+            >
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <div fxFlex="20">{{ element.piece_bomb }}:</div>
+                <div fxFlex="5" class="flex-p">
+                  <input
+                    type="checkbox"
+                    color="warn"
+                    [checked]="element.yes == 1"
+                    (change)="changedMotor($event, element, 'yes')"
+                  />
+                  Si
+                </div>
+                <div fxFlex="5" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.no == 1"
+                    (change)="changedMotor($event, element, 'no')"
+                  />
+                  No
+                </div>
+                <div fxFlex="15" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.repair == 1"
+                    (change)="changedMotor($event, element, 'repair')"
+                  />
+                  Reparacion
+                </div>
+                <div fxFlex="12" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.supply == 1"
+                    (change)="changedMotor($event, element, 'supply')"
+                  />
+                  Suministro
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.demand == 1"
+                    (change)="changedMotor($event, element, 'demand')"
+                  />
+                  Solicitar
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.stock == 1"
+                    (change)="changedMotor($event, element, 'stock')"
+                  />
+                  Stock
+                </div>
+                <div fxFlex="11.4" class="flex-p">
+                  <input
+                    type="checkbox"
+                    [checked]="element.description == 1"
+                    (change)="changedMotor($event, element, 'description')"
+                  />
+                  Desc.
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </mat-tab> 
-    </ng-container> 
-
+        </mat-tab>
+      </ng-container>
     </mat-tab-group>
-    <button mat-raised-button type="submit" [disabled]="!form.valid" color="primary">Guardar</button>
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="!form.valid"
+      color="primary"
+    >
+      Guardar
+    </button>
   </form>
 </mat-dialog-content>

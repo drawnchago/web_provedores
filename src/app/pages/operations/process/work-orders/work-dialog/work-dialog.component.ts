@@ -35,6 +35,25 @@ export class WorkDialogComponent implements OnInit {
     this.user = AuthService.getUser();
     this.form = this.fb.group({
       id: null,
+      // ** Entrada de equipos
+      position_order: [null, Validators.required],
+      folio_equipment: [null, Validators.required],
+      entry_date: [null, Validators.required],
+      user: [null, Validators.required],
+      zone: [null, Validators.required],
+      equipment_description: [null, Validators.required],
+      place: [null, Validators.required],
+      type: [null, Validators.required],
+      description_entry: [null, Validators.required],
+      comments_coditions: [null, Validators.required],
+      equipment_application: [null, Validators.required],
+      handling_fluid: [null, Validators.required],
+      work_temperature: [null, Validators.required],
+      exposed_pressure: [null, Validators.required],
+      number_or_folio_requisition: [null, Validators.required],
+      priority_id: [null, Validators.required],
+
+      // ** General de la orden de trabajo
       type_bomb_id: [null, Validators.required],
       customer_id: [null, Validators.required],
       brand_id: [null, Validators.required],
@@ -46,6 +65,7 @@ export class WorkDialogComponent implements OnInit {
       hp: [null, Validators.required],
       evaluation: [null, Validators.required],
       set: [null, Validators.required],
+      //** Medidas y peso de la orden de trabajo
       total_length_quantity: [null, Validators.required],
       total_diameter_quantity: [null, Validators.required],
       total_weight_quantity: [null, Validators.required],
@@ -56,13 +76,20 @@ export class WorkDialogComponent implements OnInit {
     });
 
   }
-  
+/*   handleUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        console.log(reader.result);
+    };
+} */
   saveOrder() {
     let data = this.form.value;
     data.user_id = this.user.id;
     console.log(data);
       this.oppService.saveWorkOrder(data).subscribe(response => {
-         this.closeDialog(response); 
+        /*  this.closeDialog(response);  */
       });
 
       console.log(this.bomb_pieces_bomb_inspection);
@@ -136,6 +163,7 @@ export class WorkDialogComponent implements OnInit {
 
 
   }
+
   ngOnInit(): void {
 
     this.form.patchValue(this.work_order);
@@ -143,11 +171,11 @@ export class WorkDialogComponent implements OnInit {
     /* console.log(this.work_order) */
          this.oppService.getPiecesInspection('Bomba', this.work_order.id).subscribe(response => {
           this.bomb_pieces_bomb_inspection = response.pieces_inspection;
-          console.log(this.bomb_pieces_bomb_inspection);
+         /*  console.log(this.bomb_pieces_bomb_inspection); */
         });
         this.oppService.getPiecesInspection('Partes Motor',this.work_order.id).subscribe(response => {
           this.bomb_pieces_motor_inspection = response.pieces_inspection;
-          console.log(this.bomb_pieces_motor_inspection);
+        /*   console.log(this.bomb_pieces_motor_inspection); */
     
         }); 
         
@@ -160,162 +188,4 @@ export class WorkDialogComponent implements OnInit {
   }
 
 }
-
-
-
-/* changedBomb(event, bomb, type) {
-    //console.log(event)
-    console.log(bomb)
-    switch (type) {
-      case 'yes':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.yes = event.target.checked;
-           
-          }
-        });
-        break;
-      case 'no':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.no = event.target.checked;
-           
-          }
-        });
-        break;
-      case 'repair':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.repair = event.target.checked;
-           
-          }
-        });
-        break;
-      case 'supply':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.supply = event.target.checked;
-           
-          }
-        });
-        break;
-      case 'demand':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.demand = event.target.checked;
-           
-          }
-        });
-        break;
-      case 'stock':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.stock = event.target.checked;
-           
-          }
-        });
-      case 'description':
-        this.bomb_pieces_bomb_inspection.map(x => {
-          if (x.piece_bomb_id == bomb.piece_bomb_id) {
-            x.description = event.target.checked;
-           
-          }
-        });
-        break;
-    }
-
-
-
-  } */
-
-  /*  changedMotor(event, bomb, type) {
- 
-     switch (type) {
-       case 'yes':
-         this.bomb_pieces_motor_inspection.map(x => {
-           if (x.piece_bomb_id == bomb.piece_bomb_id) {
-             x.yes = event.target.checked;
-            
-           }
-         });
-         break;
-       case 'no':
-         this.bomb_pieces_motor_inspection.map(x => {
-           if (x.piece_bomb_id == bomb.piece_bomb_id) {
-             x.no = event.target.checked;
-            
-           }
-         });
-         break;
-       case 'repair':
-         this.bomb_pieces_motor_inspection.map(x => {
-           if (x.piece_bomb_id == bomb.piece_bomb_id) {
-             x.repair = event.target.checked;
-            
-           }
-         });
-         break;
-       case 'supply':
-         this.bomb_pieces_motor_inspection.map(x => {
-           if (x.piece_bomb_id == bomb.piece_bomb_id) {
-             x.supply = event.target.checked;
-            
-           }
-         });
-         break;
-       case 'demand':
-         this.bomb_pieces_motor_inspection.map(x => {
-           if (x.piece_bomb_id == bomb.piece_bomb_id) {
-             x.demand = event.target.checked;
-            
-           }
-         });
-         break;
-       case 'stock':
-         this.bomb_pieces_motor_inspection.map(x => {
-           if (x.piece_bomb_id == bomb.piece_bomb_id) {
-             x.stock = event.target.checked;
-            
-           }
-         });
-       case 'description':
-         this.bomb_pieces_motor_inspection.map(x => {
-           if (x.piece_bomb_id == bomb.piece_bomb_id) {
-             x.description = event.target.checked;
-            
-           }
-         });
-         break;
-     }
- 
- 
- 
-   } */
-/* 
-    let bomb_inspection = this.bomb_pieces_bomb_inspection;
-    console.log('Inspecciones de bombas');
-    console.log(bomb_inspection);
-
-    let motor_inspection = this.bomb_pieces_motor_inspection;
-    console.log('Inspecciones de motor');
-    console.log(motor_inspection); */
- 
-/* 
-    if (this.user.role_id == 3) {
-      this.oppService.saveInspecionPiece(bomb_inspection).subscribe(response => {
-        console.log(response);
-        this.closeDialog(response);
-
-      });
-      this.oppService.saveInspecionPiece(motor_inspection).subscribe(response => {
-        console.log(response);
-        this.closeDialog(response);
-
-      });
-    } else {
-     
-      console.log(data);
-      this.oppService.saveWorkOrder(data).subscribe(response => {
-        this.closeDialog(response);
-      });
-    } */
+  
