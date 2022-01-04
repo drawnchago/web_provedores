@@ -1,0 +1,25 @@
+::ng-deep .cdk-overlay-pane {
+    overflow: auto !important;
+}
+
+.title-concepts{
+    font-size: 15px !important;
+    background: #1e88e5;
+    color: white;
+}
+
+.td-description{
+    height:30px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+}
+
+.td-center{
+    text-align: center;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: calc(0.59375em - 10px);
+    position: relative;
+}

@@ -1,0 +1,56 @@
+<h2 class="font-medium" mat-dialog-title><strong>{{action}} producto</strong></h2>
+<mat-dialog-content class="pb-3">
+	<form [formGroup]="form">
+        <div fxLayout="column" class="form-field-outer">
+            <div fxLayout="row wrap" class="align-items-center">
+                <div fxFlex="100" fxFlex.gt-md="33">
+                    <div class="m-r-15 m-l-15">
+                        <mat-form-field>
+                            <mat-select placeholder="Unidad de medida:" formControlName="measurement_unit_id">
+                                <mat-option *ngFor="let mu of measurement_units" [value]="mu.id">{{mu.description}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxFlex="100" fxFlex.gt-md="33">
+                    <div class="m-r-15 m-l-15">
+                        <mat-form-field>
+                            <mat-select placeholder="Tipo producto:" formControlName="type_product_id">
+                                <mat-option *ngFor="let top of type_of_products" [value]="top.id">{{top.description}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxFlex="100" fxFlex.gt-md="33">
+                    <div class="m-r-15 m-l-15">
+                        <mat-form-field>
+                            <mat-select placeholder="Clasificacion:" formControlName="classification_id">
+                                <mat-option *ngFor="let c of classifications" [value]="c.id">{{c.description}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxFlex="100" fxFlex.gt-md="33">
+                    <div class="m-r-15 m-l-15">
+                        <mat-form-field>
+                            <input type="text" formControlName="description" placeholder="Descripcion" type="text" minlength="1" maxlength="100" pattern="[A-Za-z0-9_-]{1,100}"  matInput required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxFlex="100" fxFlex.gt-md="33">
+                    <div class="m-r-15 m-l-15">
+                        <mat-form-field>
+                            <mat-select placeholder="Estatus" formControlName="status">
+                                <mat-option [value]="1">Activo</mat-option>
+                                <mat-option [value]="2">Inactivo</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button mat-flat-button class="style-btn" (click)="save()">Guardar</button>
+        </div>
+	</form>
+</mat-dialog-content>

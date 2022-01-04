@@ -1,0 +1,135 @@
+.header-image-card {
+  background-size: cover;
+}
+.header-image-card-conversation {
+  background-size: cover;
+  width: 5% !important;
+}
+.div-card-approved {
+  float: left;
+}
+.div-card-client {
+  float: right;
+}
+.example-card-approved {
+  // max-width: 400px;
+  margin: 45px 0px 0px 0px;
+  margin-left: 65%;
+  width: 40%;
+}
+.example-card-client {
+  // max-width: 400px;
+  margin: 45px 0px 0px 0px;
+  width: 40%;
+}
+.mat-cad-header-approved {
+  background-color: rgb(40, 53, 147);
+}
+.mat-cad-header-client {
+  background-color: rgb(21, 115, 71);
+}
+.mat-card-title {
+  color: white;
+}
+.mat-card-subtitle {
+  color: white;
+}
+
+//VIEW REQUISITION
+.requisition-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.requisition-head-1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.requisition-head-2 {
+  border-style: dotted;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 20px;
+}
+.requisition-head-tittle-1 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.requisition-body {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 20px;
+}
+.bold {
+  font-weight: bold;
+}
+.table-2 {
+  width: 100%;
+}
+.table-2-td {
+  border-style: dotted;
+  border-collapse: collapse;
+}
+
+.m-button {
+  margin-top: 5%;
+}
+.m-exp-panel {
+  margin-top: 5%;
+}
+.text-alert {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-style: solid;
+  text-align: center;
+  font-weight: bold;
+}
+.card-levels {
+  background-color: white;
+}
+
+.mat-card-avatar {
+  width: 20%;
+  height: 20%;
+}
+.mat-card-avatar-img {
+  width: 25%;
+  height: 10%;
+  border-radius: 65% 0% 0% 75%;
+  background-color: black;
+}
+.mat-card-img-2 {
+  width: 100%;
+  height: 10%;
+  margin-left: 0%;
+  border-radius: 50%;
+}
+.mat-card-avatar-text {
+  width: 100%;
+  background-color: black;
+  border-radius: 0% 5% 5% 0%;
+  background: linear-gradient(10deg, black, grey);
+}
+.mat-cad-avatar-message {
+  color: white;
+  display: block;
+}
+.mat-cad-avatar-message-2 {
+  color: white;
+  display: block;
+  margin-left: 2%;
+}
+.vertical-line {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-left: 6px solid green;
+  height: 100px;
+}
+.btn-right {
+  float: right;
+}
+.example-full-width {
+  margin-top: 5%;
+}
+

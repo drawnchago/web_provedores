@@ -1,0 +1,29 @@
+export interface ExitSheet {
+    id: number;
+    invoice_or_referral?: number;
+    exit_pass?: string;
+    user_id?: number;
+    zone?: number;
+    exit_date?: number;
+    equipment_folio?: number;
+    drips?: number;
+    order?: number;
+    type?: number;
+    material_description?: string;
+    test_pressure?: number;
+    leakage?: number;
+    arrow_end_dimension?: number;
+    threads?: number;
+    screws_cooling_lines?: number;
+    armed?: number;
+    keyhole?: number;
+    levels?: number;
+    packaging?: number;
+    observations?: string;
+    created_at?: number;
+    created_by?: number;
+    updated_at?: number;
+    updated_by?: number;
+    applicant?: string;
+    witness?: string;
+}

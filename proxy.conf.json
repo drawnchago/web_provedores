@@ -1,0 +1,11 @@
+{
+    "/api/*": {
+    "target": "http://apis.bovisaerp.mx",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite" :{
+      "^/api" : ""
+    }
+  }
+}

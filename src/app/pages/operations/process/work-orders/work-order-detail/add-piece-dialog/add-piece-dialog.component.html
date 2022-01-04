@@ -1,0 +1,44 @@
+<h2 class="font-medium" mat-dialog-title>
+  <strong> Agregar Nueva Pieza</strong>
+</h2>
+<mat-dialog-content class="pb-3">
+  <form [formGroup]="form" (ngSubmit)="savePiece()">
+    <mat-tab-group dynamicHeight>
+      <mat-tab label="Entrada de equipo">
+        <div fxFlex="100" fxFlex.gt-md="33">
+          <div class="m-r-15 m-l-15">
+            <mat-form-field>
+              <input
+                type="text"
+                formControlName="name"
+                matInput
+                required
+                placeholder="Pieza"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxFlex="100" fxFlex.gt-md="33">
+          <div class="m-r-15 m-l-15">
+            <mat-form-field>
+              <mat-select
+                formControlName="type"
+                placeholder="Tipo"
+                required
+              >
+                <mat-option>--</mat-option>
+                  <mat-option [value]="1">
+                  Bomba
+                </mat-option>
+                  <mat-option [value]="2">
+                  Motor
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+    <button mat-raised-button type="submit" color="primary">Guardar</button>
+  </form>
+</mat-dialog-content>

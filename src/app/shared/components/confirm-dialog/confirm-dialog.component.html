@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Confirmación</h1>
+<hr>
+<div mat-dialog-content>
+	<p>{{message}}</p>
+	<div fxLayoutAlign="center center">
+		<span><b>{{name}}</b></span>
+	</div>
+</div>
+<br>
+<div mat-dialog-actions>
+	<button mat-button (click)="close()">No</button>
+	<button mat-button (click)="confirm()" cdkFocusInitial>Sí</button>
+</div>
