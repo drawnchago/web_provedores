@@ -1,0 +1,26 @@
+.table{
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+.div-margin{
+    margin-left: 25%;
+}
+
+.mat-row {
+    &.valid {
+        background-color: rgba(146, 223, 101, 0.61);
+    }
+    &.invalid{
+        background-color: rgba(178, 62, 62, 0.61);
+    }
+}

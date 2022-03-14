@@ -1,0 +1,110 @@
+<div>
+    <mat-card>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <div fxFlex="100">
+                    <mat-tab-group>
+                            <mat-tab>
+                                <div fxLayout="column">
+                                    <ng-template mat-tab-label><i class="fa fa-file-code-o" aria-hidden="true"></i>Cargar XML/PDF</ng-template>
+                                    <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 5%; margin-bottom: 10%;" *ngIf="status_pr == 9">
+                                        <h3>No puedes cargar tus archivos, es necesario comunicarte con el area correspondiente</h3>
+                                    </div>
+                                    <div *ngIf="status_pr !=9">
+                                        <div *ngIf="!isXmlSuccess && !isPdfSuccess">   
+                                            <h2>(1/5).-Carga tu XML:</h2>
+                                            <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 5%; margin-bottom: 10%;" >
+                                                <div fxFlex="100" class="content-container">
+                                                    <dropzone #dropzone class="dropzone-container" 
+                                                    [config]="dropzoneConfig" 
+                                                    (error) = "errorUploadFile($event)" 
+                                                    (success)= "successUploadFile($event,true)" 
+                                                    (canceled)  = "canceledUploadFile($event)" 
+                                                    fxLayout="row" fxLayoutAlign="start strech" fxFlex="auto"></dropzone>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  *ngIf="isXmlSuccess && !isPdfSuccess">
+                                            <h2>(2/5).-Carga tu PDF:</h2>
+                                            <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 5%; margin-bottom: 10%;">
+                                                <div fxFlex="100" class="content-container">
+                                                        <dropzone #drclscopzone class="dropzone-container" 
+                                                        [config]="dropzoneConfig" 
+                                                        (error) = "errorUploadFile($event)" 
+                                                        (success)= "successUploadFile($event,false)" 
+                                                        (canceled)  = "canceledUploadFile($event)" 
+                                                        fxLayout="row" fxLayoutAlign="start strech" fxFlex="auto"></dropzone>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div fxLayout="column" *ngIf="isXmlSuccess">
+                                            <h2 class="text-center">Validación de archivo:</h2>
+                                            <table mat-table   [dataSource]="dataSourceFile" class="table">
+            
+                                                <!-- Position Column -->
+                                                <ng-container matColumnDef="position">
+                                                <th mat-header-cell class="div-margin" *matHeaderCellDef> No. </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                                                </ng-container>
+        
+                                                <!--File Description Column -->
+                                                <ng-container matColumnDef="description">
+                                                    <th mat-header-cell class="div-margin" *matHeaderCellDef> Descripción </th>
+                                                    <td mat-cell *matCellDef="let element" class="text-bold"> {{element.description}} </td>
+                                                </ng-container>
+                                            
+                                                <!--File Name Column -->
+                                                <ng-container matColumnDef="name">
+                                                <th mat-header-cell class="div-margin" *matHeaderCellDef> Nombre </th>
+                                                <td mat-cell *matCellDef="let element" class="text-bold"> {{element.name ? element.name : 'Pendiente'}} </td>
+                                                </ng-container>
+                                            
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumnsFile"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumnsFile;" [ngClass]="{'valid': row.check == 1, 'invalid': row.check == 0}"></tr>
+                                            </table>
+                                            <div fxLayoutAlign="center center" style="margin-top: 2%;margin-bottom: 1%;">
+                                                <div class="example-button-container">
+                                                    <button mat-fab color="warn" (click)="messageDelete()" aria-label="Eliminar Carga">
+                                                      <mat-icon>delete</mat-icon>
+                                                    </button>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!--- Note: This table is a description DOCUMENT UPLOAD" -->
+                                    
+                                    <div *ngIf="isXmlSuccess && isPdfSuccess">
+
+                                        <!--- Note: This table are VALIDATIONS" -->
+
+                                        <table mat-table [dataSource]="dataSource" class="table">
+
+                                            <!-- Id Column -->
+                                            <ng-container matColumnDef="id">
+                                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                                            </ng-container>
+                                        
+                                            <!-- Description Column -->
+                                            <ng-container matColumnDef="description">
+                                            <th mat-header-cell *matHeaderCellDef> Descripción </th>
+                                            <td mat-cell *matCellDef="let element" style="font-weight: bold;"> {{element.description}} </td>
+                                            </ng-container>
+                                        
+                                            <tr mat-header-row *matHeaderRowDef="displayedColumnsValid"></tr> 
+                                            <tr mat-row *matRowDef="let row; columns: displayedColumnsValid;" [ngClass]="{'valid': row.status == 1, 'invalid': row.status == 0}"></tr>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </mat-tab>
+                      
+                        <mat-tab><ng-template mat-tab-label> Cargar CRP <mat-icon class="example-tab-icon">receipt</mat-icon></ng-template></mat-tab>
+                      </mat-tab-group>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+      
+</div>

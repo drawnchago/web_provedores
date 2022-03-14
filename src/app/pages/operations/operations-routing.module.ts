@@ -2,57 +2,29 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/shared/guard/auth.guard';
 
-import { WorkOrdersComponent } from './process/work-orders/work-orders.component';
-import { TypesBombComponent } from './catalogs/types-bomb/types-bomb.component';
-import { BrandsBombComponent } from './catalogs/brands-bomb/brands-bomb.component';
-import { ModelsBombComponent } from './catalogs/models-bomb/models-bomb.component';
-import { OrderSheetsComponent } from './process/order-sheets/order-sheets.component';
-import { EntrySheetsComponent } from './process/entry-sheets/entry-sheets.component';
-import { ExitSheetsComponent } from './process/exit-sheets/exit-sheets.component';
+import { InvoicesComponent } from './process/invoices/invoices.component';
+import { PurchaseOrderComponent } from './process/purchase-order/purchase-order.component';
+import { UploadXmlComponent } from './process/upload-xml/upload-xml.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'op-process/work-orders', pathMatch: 'full'},
+  { path: '', redirectTo: 'process/invoices', pathMatch: 'full'},
   {
-    path: 'op-process/work-orders',
-    component: WorkOrdersComponent,
+    path: 'process/invoices',
+    component: InvoicesComponent,
     canActivate: [AuthGuard], 
-    data: {id: 24}
+    data: {id: 6}
   },
   {
-    path: 'op-catalogs/types-bomb',
-    component: TypesBombComponent,
+    path: 'process/upload-xml',
+    component: UploadXmlComponent,
     canActivate: [AuthGuard], 
-    data: {id: 25}
+    data: {id: 7}
   },
   {
-    path: 'op-catalogs/brands-bomb',
-    component: BrandsBombComponent,
+    path: 'process/purchase-order',
+    component: PurchaseOrderComponent,
     canActivate: [AuthGuard], 
-    data: {id: 26}
-  },
-  {
-    path: 'op-catalogs/models-bomb',
-    component: ModelsBombComponent,
-    canActivate: [AuthGuard], 
-    data: {id: 27}
-  },
-  {
-    path: 'op-process/order-sheets',
-    component: OrderSheetsComponent,
-    canActivate: [AuthGuard],
-    data: {id: 56}
-  },
-  {
-    path: 'op-process/entry-sheets',
-    component: EntrySheetsComponent,
-    canActivate: [AuthGuard],
-    data: {id: 57}
-  },
-  {
-    path: 'op-process/exit-sheets',
-    component: ExitSheetsComponent,
-    canActivate: [AuthGuard],
-    data: {id: 58}
+    data: {id: 8}
   }
 ];
 
