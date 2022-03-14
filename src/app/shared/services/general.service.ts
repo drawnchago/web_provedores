@@ -20,4 +20,13 @@ export class GeneralService {
   getMunicipalitiesByType(id:number,type:number): Observable<any>{
     return this.httpClient.get<any>(this.urlBase + 'getMunicipalitiesByType?id=' + id + '&type=' + type);
   }
+  getAreasByType(id:number,type:number): Observable<any>{
+    return this.httpClient.get<any>(this.urlBase + 'getAreasByType?id=' + id + '&type=' + type);
+  }
+  getUsersByType(id:number,type:number): Observable<any>{
+    return this.httpClient.get<any>(this.urlBase + 'getUsersByType?id=' + id + '&type=' + type);
+  }
+  getProductsByType(id:number,type:number,description:string): Observable<any>{
+    return this.httpClient.get<any>(this.urlBase + 'getProductsByType?id=' + id + '&type=' + type + '&description=' + description);
+  }
 }

@@ -6,7 +6,7 @@ import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { StCatalogsService } from '../st-catalogs.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { MunicipalitiesDialogComponent } from './municipalities-dialog/municipalities-dialog.component';
-import { Municipalities } from './municipalities.model';
+import { Municipality } from './municipalities.model';
 
 @Component({
   selector: 'app-municipalities',
@@ -15,8 +15,8 @@ import { Municipalities } from './municipalities.model';
 })
 export class MunicipalitiesComponent implements OnInit {
 
-  public municipalities   : Municipalities[];
-  public dataSource       : MatTableDataSource<Municipalities>;
+  public municipalities   : Municipality[];
+  public dataSource       : MatTableDataSource<Municipality>;
   public displayedColumns = ['description','status','created_at','created_by','updated_at','updated_by','action'];
 
   constructor(              
@@ -93,7 +93,7 @@ export class MunicipalitiesComponent implements OnInit {
         }
 
         this.municipalities = response['municipalities'];
-        this.dataSource = new MatTableDataSource<Municipalities>(this.municipalities);
+        this.dataSource = new MatTableDataSource<Municipality>(this.municipalities);
       });
   }
 

@@ -1,4 +1,4 @@
-export class States {
+export class State {
   id          : number;
   description : string;
   status      : number;

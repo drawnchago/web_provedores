@@ -1,6 +1,6 @@
 {
     "/api/*": {
-    "target": "http://apis.bovisaerp.mx",
+    "target": "http://apis.webprov.mx",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,

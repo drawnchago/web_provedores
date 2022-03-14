@@ -1,4 +1,4 @@
-export class Municipalities {
+export class Municipality {
   id          : number;
   description : string;
   status      : number;

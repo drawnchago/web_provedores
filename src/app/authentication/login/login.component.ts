@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
       if(result.success){
         //this.dataService(username);
         //this.router.navigate(['/dashboard']);
-        if(result.user.rolePermissions.lenght == 0){
+        if(result.provider.rolePermissions.lenght == 0){
           this.toastr.error("Sin modulos asignados");
         }else{
-          sessionStorage.setItem('user', JSON.stringify(result.user));
+          sessionStorage.setItem('user', JSON.stringify(result.provider));
           sessionStorage.setItem('isLoggedIn','true');
-          sessionStorage.setItem('roleId',result.user.id_role);
+          sessionStorage.setItem('roleId',result.provider.id_role);
           this.router.navigate(['/dashboard']);
         }
       }else{

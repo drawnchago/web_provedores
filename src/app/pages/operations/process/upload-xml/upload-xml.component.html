@@ -1,0 +1,32 @@
+<div>
+    <h1>Cargar XML/CRP</h1>
+    <mat-card>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <div fxFlex="100">
+                    <mat-tab-group>
+                        <mat-tab>
+                          <ng-template mat-tab-label> Cargar XML<mat-icon class="example-tab-icon">article</mat-icon></ng-template>
+                            <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 5%; margin-bottom: 10%;" *ngIf="role == 3">
+                                <div class="divider-tittle" >
+                                    <label><h2>Carga tu archivo firmado:</h2></label>
+                                </div>
+                                <div fxLayoutAlign="center center" style="margin-bottom: 5%;">
+                                    <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
+                                        <dropzone #dropzone class="dropzone-container" [config]="dropzoneConfig" fxLayout="row" fxLayoutAlign="start strech" fxFlex="auto" [message]="'Da Click o arrastra tu carta de aceptación'" (error)="onUploadError($event)" (canceled)="onUploadSuccess($event)" (success)="onUploadSuccess($event)"></dropzone>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 5%; margin-bottom: 10%;" *ngIf="role == 9">
+                                <h3>No puedes cargar tus documentos,tu usuario se encuentra bloqueado</h3>
+                            </div>
+                        </mat-tab>
+                      
+                        <mat-tab><ng-template mat-tab-label> Cargar CRP <mat-icon class="example-tab-icon">receipt</mat-icon></ng-template></mat-tab>
+                      </mat-tab-group>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+      
+</div>

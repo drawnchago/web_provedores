@@ -6,7 +6,7 @@ import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { StCatalogsService } from '../st-catalogs.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { StatesDialogComponent } from './states-dialog/states-dialog.component';
-import { States } from './states.model';
+import { State } from './states.model';
 
 @Component({
   selector: 'app-states',
@@ -15,8 +15,8 @@ import { States } from './states.model';
 })
 export class StatesComponent implements OnInit {
 
-  public states           : States[];
-  public dataSource       : MatTableDataSource<States>;
+  public states           : State[];
+  public dataSource       : MatTableDataSource<State>;
   public displayedColumns = ['description','status','created_at','created_by','updated_at','updated_by','action'];
 
   constructor(              
@@ -93,7 +93,7 @@ export class StatesComponent implements OnInit {
         }
 
         this.states = response['states'];
-        this.dataSource = new MatTableDataSource<States>(this.states);
+        this.dataSource = new MatTableDataSource<State>(this.states);
       });
   }
 
